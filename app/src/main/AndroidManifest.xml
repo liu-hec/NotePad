@@ -31,7 +31,9 @@
             <grant-uri-permission android:pathPattern=".*" />
         </provider>
 
-        <activity android:name="NotesList" android:label="@string/title_notes_list">
+        <activity android:name="NotesList"
+            android:exported="true"
+            android:label="@string/title_notes_list">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -51,6 +53,7 @@
         </activity>
 
         <activity android:name="NoteEditor"
+            android:exported="true"
             android:theme="@android:style/Theme.Holo.Light"
             android:screenOrientation="sensor"
             android:configChanges="keyboardHidden|orientation"
@@ -79,6 +82,7 @@
         </activity>
 
         <activity android:name="TitleEditor"
+            android:exported="true"
             android:label="@string/title_edit_title"
             android:icon="@drawable/ic_menu_edit"
             android:theme="@android:style/Theme.Holo.Dialog"
@@ -105,7 +109,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="NotesLiveFolder" android:label="@string/live_folder_name"
+        <activity android:name="NotesLiveFolder"
+            android:exported="true"
+            android:label="@string/live_folder_name"
             android:icon="@drawable/live_folder_notes">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_LIVE_FOLDER" />

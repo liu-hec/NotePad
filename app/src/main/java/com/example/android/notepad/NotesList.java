@@ -262,24 +262,24 @@ public class NotesList extends ListActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-        case R.id.menu_add:
-          /*
-           * Launches a new Activity using an Intent. The intent filter for the Activity
-           * has to have action ACTION_INSERT. No category is set, so DEFAULT is assumed.
-           * In effect, this starts the NoteEditor Activity in NotePad.
-           */
-           startActivity(new Intent(Intent.ACTION_INSERT, getIntent().getData()));
-           return true;
-        case R.id.menu_paste:
-          /*
-           * Launches a new Activity using an Intent. The intent filter for the Activity
-           * has to have action ACTION_PASTE. No category is set, so DEFAULT is assumed.
-           * In effect, this starts the NoteEditor Activity in NotePad.
-           */
-          startActivity(new Intent(Intent.ACTION_PASTE, getIntent().getData()));
-          return true;
-        default:
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_add) {
+            /*
+             * Launches a new Activity using an Intent. The intent filter for the Activity
+             * has to have action ACTION_INSERT. No category is set, so DEFAULT is assumed.
+             * In effect, this starts the NoteEditor Activity in NotePad.
+             */
+            startActivity(new Intent(Intent.ACTION_INSERT, getIntent().getData()));
+            return true;
+        } else if (itemId == R.id.menu_paste) {
+            /*
+             * Launches a new Activity using an Intent. The intent filter for the Activity
+             * has to have action ACTION_PASTE. No category is set, so DEFAULT is assumed.
+             * In effect, this starts the NoteEditor Activity in NotePad.
+             */
+            startActivity(new Intent(Intent.ACTION_PASTE, getIntent().getData()));
+            return true;
+        } else {
             return super.onOptionsItemSelected(item);
         }
     }
@@ -392,44 +392,43 @@ public class NotesList extends ListActivity {
         /*
          * Gets the menu item's ID and compares it to known actions.
          */
-        switch (item.getItemId()) {
-        case R.id.context_open:
+        int itemId = item.getItemId();
+        if (itemId == R.id.context_open) {
             // Launch activity to view/edit the currently selected item
             startActivity(new Intent(Intent.ACTION_EDIT, noteUri));
             return true;
-//BEGIN_INCLUDE(copy)
-        case R.id.context_copy:
+        } else if (itemId == R.id.context_copy) {
             // Gets a handle to the clipboard service.
             ClipboardManager clipboard = (ClipboardManager)
                     getSystemService(Context.CLIPBOARD_SERVICE);
-  
+
             // Copies the notes URI to the clipboard. In effect, this copies the note itself
             clipboard.setPrimaryClip(ClipData.newUri(   // new clipboard item holding a URI
                     getContentResolver(),               // resolver to retrieve URI info
                     "Note",                             // label for the clip
                     noteUri)                            // the URI
             );
-  
+
             // Returns to the caller and skips further processing.
             return true;
-//END_INCLUDE(copy)
-        case R.id.context_delete:
-  
+        } else if (itemId == R.id.context_delete) {
+
             // Deletes the note from the provider by passing in a URI in note ID format.
             // Please see the introductory note about performing provider operations on the
             // UI thread.
             getContentResolver().delete(
-                noteUri,  // The URI of the provider
-                null,     // No where clause is needed, since only a single note ID is being
-                          // passed in.
-                null      // No where clause is used, so no where arguments are needed.
+                    noteUri,  // The URI of the provider
+                    null,     // No where clause is needed, since only a single note ID is being
+                    // passed in.
+                    null      // No where clause is used, so no where arguments are needed.
             );
-  
+
             // Returns to the caller and skips further processing.
             return true;
-        default:
+        } else {
             return super.onContextItemSelected(item);
         }
+
     }
 
     /**

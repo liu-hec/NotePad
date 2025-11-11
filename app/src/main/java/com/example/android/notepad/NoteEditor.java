@@ -432,20 +432,19 @@ public class NoteEditor extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle all of the possible menu actions.
-        switch (item.getItemId()) {
-        case R.id.menu_save:
+        // Handle all of the possible menu actions.
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_save) {
             String text = mText.getText().toString();
             updateNote(text, null);
             finish();
-            break;
-        case R.id.menu_delete:
+        } else if (itemId == R.id.menu_delete) {
             deleteNote();
             finish();
-            break;
-        case R.id.menu_revert:
+        } else if (itemId == R.id.menu_revert) {
             cancelNote();
-            break;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
