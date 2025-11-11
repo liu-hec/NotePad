@@ -62,7 +62,7 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
     /**
      * The database version
      */
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     /**
      * A projection map used to select columns from the database
@@ -154,6 +154,12 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
         sNotesProjectionMap.put(
                 NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,
                 NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE);
+                
+        // Maps "type" to "type"
+        sNotesProjectionMap.put(NotePad.Notes.COLUMN_NAME_TYPE, NotePad.Notes.COLUMN_NAME_TYPE);
+        
+        // Maps "background_color" to "background_color"
+        sNotesProjectionMap.put(NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR, NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR);
 
         /*
          * Creates an initializes a projection map for handling Live Folders
@@ -195,7 +201,9 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
                    + NotePad.Notes.COLUMN_NAME_TITLE + " TEXT,"
                    + NotePad.Notes.COLUMN_NAME_NOTE + " TEXT,"
                    + NotePad.Notes.COLUMN_NAME_CREATE_DATE + " INTEGER,"
-                   + NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE + " INTEGER"
+                   + NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE + " INTEGER,"
+                   + NotePad.Notes.COLUMN_NAME_TYPE + " TEXT,"
+                   + NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR + " TEXT"
                    + ");");
        }
 
@@ -678,8 +686,7 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
             // If the incoming URI matches the general notes pattern, does the update based on
             // the incoming data.
             case NOTES:
-                // If the values map doesn't contain the modification date, sets the value to the current
-                // time.
+                // If the values map doesn't contain the modification date, sets the value to the current time.
                 if (values.containsKey(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE) == false) {
                     values.put(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, System.currentTimeMillis());
                 }

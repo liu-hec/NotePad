@@ -16,6 +16,7 @@
 
 package com.example.android.notepad;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -36,7 +37,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 /**
  * This Activity handles "editing" a note, where editing is responding to
@@ -60,7 +65,9 @@ public class NoteEditor extends Activity {
         new String[] {
             NotePad.Notes._ID,
             NotePad.Notes.COLUMN_NAME_TITLE,
-            NotePad.Notes.COLUMN_NAME_NOTE
+            NotePad.Notes.COLUMN_NAME_NOTE,
+            NotePad.Notes.COLUMN_NAME_TYPE,
+            NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR
     };
 
     // A label for the saved state of the activity
@@ -76,7 +83,19 @@ public class NoteEditor extends Activity {
     private Uri mUri;
     private Cursor mCursor;
     private EditText mText;
+    private EditText mTitleText;
+    private Spinner mTypeSpinner;
+    private Spinner mColorSpinner;
     private String mOriginalContent;
+    
+    // Predefined categories and colors
+    private static final String[] CATEGORIES = {"All", "Personal", "Work", "Ideas", "Tasks", "Other"};
+    private static final String[] COLORS = {
+        "#FFFFFF", "#FFE4E1", "#F0FFF0", "#E6F3FF", "#FFF8DC", "#F5F5DC"
+    };
+    private static final String[] COLOR_NAMES = {
+        "None", "Light Pink", "Honeydew", "Light Blue", "Corn Silk", "Beige"
+    };
 
     /**
      * Defines a custom EditText View that draws lines between each line of text that is displayed.
@@ -138,7 +157,11 @@ public class NoteEditor extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setDisplayShowHomeEnabled(false);
+        }
         /*
          * Creates an Intent to use when the Activity object's result is sent back to the
          * caller.
@@ -222,11 +245,17 @@ public class NoteEditor extends Activity {
             mState = STATE_EDIT;
         }
 
-        // Sets the layout for this Activity. See res/layout/note_editor.xml
-        setContentView(R.layout.note_editor);
+        // Sets the layout for this Activity. See res/layout/note_editor_extended.xml
+        setContentView(R.layout.note_editor_extended);
 
         // Gets a handle to the EditText in the the layout.
         mText = (EditText) findViewById(R.id.note);
+        mTitleText = (EditText) findViewById(R.id.title);
+        mTypeSpinner = (Spinner) findViewById(R.id.type_spinner);
+        mColorSpinner = (Spinner) findViewById(R.id.color_spinner);
+        
+        // Setup spinners
+        setupSpinners();
 
         /*
          * If this Activity had stopped previously, its state was written the ORIGINAL_CONTENT
@@ -235,6 +264,29 @@ public class NoteEditor extends Activity {
         if (savedInstanceState != null) {
             mOriginalContent = savedInstanceState.getString(ORIGINAL_CONTENT);
         }
+    }
+
+    private void setupSpinners() {
+        // Setup type spinner
+        ArrayAdapter<String> typeAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, CATEGORIES);
+        typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mTypeSpinner.setAdapter(typeAdapter);
+
+        // Setup color spinner
+        ArrayAdapter<String> colorAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, COLOR_NAMES) {
+            @Override
+            public View getDropDownView(int position, View convertView, android.view.ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                if (position > 0) {
+                    view.setBackgroundColor(android.graphics.Color.parseColor(COLORS[position]));
+                }
+                return view;
+            }
+        };
+        colorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mColorSpinner.setAdapter(colorAdapter);
     }
 
     /**
@@ -289,6 +341,35 @@ public class NoteEditor extends Activity {
             int colNoteIndex = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_NOTE);
             String note = mCursor.getString(colNoteIndex);
             mText.setTextKeepState(note);
+            
+            // Set title
+            int colTitleIndex = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_TITLE);
+            String title = mCursor.getString(colTitleIndex);
+            mTitleText.setText(title);
+            
+            // Set type
+            int colTypeIndex = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_TYPE);
+            String type = mCursor.getString(colTypeIndex);
+            if (type != null) {
+                for (int i = 0; i < CATEGORIES.length; i++) {
+                    if (CATEGORIES[i].equals(type)) {
+                        mTypeSpinner.setSelection(i);
+                        break;
+                    }
+                }
+            }
+            
+            // Set color
+            int colColorIndex = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR);
+            String color = mCursor.getString(colColorIndex);
+            if (color != null) {
+                for (int i = 0; i < COLORS.length; i++) {
+                    if (COLORS[i].equals(color)) {
+                        mColorSpinner.setSelection(i);
+                        break;
+                    }
+                }
+            }
 
             // Stores the original note text, to allow the user to revert changes.
             if (mOriginalContent == null) {
@@ -348,29 +429,58 @@ public class NoteEditor extends Activity {
             String text = mText.getText().toString();
             int length = text.length();
 
-            /*
-             * If the Activity is in the midst of finishing and there is no text in the current
-             * note, returns a result of CANCELED to the caller, and deletes the note. This is done
-             * even if the note was being edited, the assumption being that the user wanted to
-             * "clear out" (delete) the note.
-             */
+            // If the Activity is in the midst of finishing and there is no text, sets the
+            // result to CANCELED, as if the user had pressed the back button.
             if (isFinishing() && (length == 0)) {
                 setResult(RESULT_CANCELED);
-                deleteNote();
+                return;
+            }
 
-                /*
-                 * Writes the edits to the provider. The note has been edited if an existing note was
-                 * retrieved into the editor *or* if a new note was inserted. In the latter case,
-                 * onCreate() inserted a new empty note into the provider, and it is this new note
-                 * that is being edited.
-                 */
-            } else if (mState == STATE_EDIT) {
-                // Creates a map to contain the new values for the columns
-                updateNote(text, null);
-            } else if (mState == STATE_INSERT) {
-                updateNote(text, text);
-                mState = STATE_EDIT;
-          }
+            // Get the current title
+            String title = mTitleText.getText().toString();
+            
+            // Get the current type
+            String type = (String) mTypeSpinner.getSelectedItem();
+            if (type != null && type.isEmpty()) {
+                type = null;
+            }
+            
+            // Get the current color
+            String color = COLORS[mColorSpinner.getSelectedItemPosition()];
+
+            // Creates a map to contain the new values for the columns
+            ContentValues values = new ContentValues();
+            values.put(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, System.currentTimeMillis());
+            
+            // Only update title if it's not empty
+            if (title != null && !title.isEmpty()) {
+                values.put(NotePad.Notes.COLUMN_NAME_TITLE, title);
+            }
+            
+            // Update type and color
+            values.put(NotePad.Notes.COLUMN_NAME_TYPE, type);
+            values.put(NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR, color);
+
+            // This puts the desired notes text into the map.
+            values.put(NotePad.Notes.COLUMN_NAME_NOTE, text);
+
+            /*
+             * Updates the provider with the new values in the map. The ListView is updated
+             * automatically. The provider sets this up by setting the notification URI for
+             * query Cursor objects to the incoming URI. The content resolver is thus
+             * automatically notified when the Cursor for the URI changes, and the UI is
+             * updated.
+             * Note: This is being done on the UI thread. It will block the thread until the
+             * update completes. In a sample app, going against a simple provider based on a
+             * local database, the block will be momentary, but in a real app you should use
+             * android.content.AsyncQueryHandler or android.os.AsyncTask.
+             */
+            getContentResolver().update(
+                    mUri,    // The URI for the record to update.
+                    values,  // The map of column names and new values to apply to them.
+                    null,    // No selection criteria are used, so no where columns are necessary.
+                    null     // No where columns are used, so no where arguments are necessary.
+                );
         }
     }
 
@@ -379,10 +489,12 @@ public class NoteEditor extends Activity {
      * this Activity. Android passes in a Menu object that is populated with items.
      *
      * Builds the menus for editing and inserting, and adds in alternative actions that
-     * registered themselves to handle the MIME types for this application.
+     * registered themselves to handle the MIME type for this table. These are used
+     * if the user has any additional packages that are registered to handle the MIME
+     * type used by this application.
      *
-     * @param menu A Menu object to which items should be added.
-     * @return True to display the menu.
+     * @param menu A Menu object to which menu items should be added.
+     * @return True, always. The menu should be displayed.
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -390,7 +502,7 @@ public class NoteEditor extends Activity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.editor_options_menu, menu);
 
-        // Only add extra menu items for a saved note 
+        // Only add extra menu items for a saved note
         if (mState == STATE_EDIT) {
             // Append to the
             // menu items for any other activities that can do stuff with it
@@ -408,15 +520,6 @@ public class NoteEditor extends Activity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        // Check if note has changed and enable/disable the revert option
-        int colNoteIndex = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_NOTE);
-        String savedNote = mCursor.getString(colNoteIndex);
-        String currentNote = mText.getText().toString();
-        if (savedNote.equals(currentNote)) {
-            menu.findItem(R.id.menu_revert).setVisible(false);
-        } else {
-            menu.findItem(R.id.menu_revert).setVisible(true);
-        }
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -432,11 +535,11 @@ public class NoteEditor extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle all of the possible menu actions.
-        // Handle all of the possible menu actions.
         int itemId = item.getItemId();
         if (itemId == R.id.menu_save) {
             String text = mText.getText().toString();
-            updateNote(text, null);
+            String title = mTitleText.getText().toString();
+            updateNote(text, title);
             finish();
         } else if (itemId == R.id.menu_delete) {
             deleteNote();
@@ -553,6 +656,17 @@ public class NoteEditor extends Activity {
         } else if (title != null) {
             // In the values map, sets the value of the title
             values.put(NotePad.Notes.COLUMN_NAME_TITLE, title);
+        }
+
+        // Add type and color
+        String type = (String) mTypeSpinner.getSelectedItem();
+        if (type != null && !type.isEmpty()) {
+            values.put(NotePad.Notes.COLUMN_NAME_TYPE, type);
+        }
+        
+        String color = COLORS[mColorSpinner.getSelectedItemPosition()];
+        if (!color.isEmpty()) {
+            values.put(NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR, color);
         }
 
         // This puts the desired notes text into the map.

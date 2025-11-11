@@ -18,6 +18,7 @@ package com.example.android.notepad;
 
 import com.example.android.notepad.NotePad;
 
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.ClipboardManager;
 import android.content.ClipData;
@@ -26,19 +27,27 @@ import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.SimpleCursorAdapter;
 import android.widget.SearchView;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
@@ -64,17 +73,30 @@ public class NotesList extends ListActivity {
     private static final String[] PROJECTION = new String[] {
             NotePad.Notes._ID, // 0
             NotePad.Notes.COLUMN_NAME_TITLE, // 1
-            NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE // 2
+            NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, // 2
+            NotePad.Notes.COLUMN_NAME_TYPE, // 3
+            NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR // 4
     };
 
     /** The index of the title column */
     private static final int COLUMN_INDEX_TITLE = 1;
     private static final int COLUMN_INDEX_MODIFICATION_DATE = 2;
+    private static final int COLUMN_INDEX_TYPE = 3;
+    private static final int COLUMN_INDEX_BACKGROUND_COLOR = 4;
 
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private SimpleCursorAdapter adapter;
     private SearchView searchView;
+    private String currentFilterType = null;
+
+    // 定义分类菜单项的ID常量
+    private static final int MENU_ITEM_ALL = 1;
+    private static final int MENU_ITEM_PERSONAL = 2;
+    private static final int MENU_ITEM_WORK = 3;
+    private static final int MENU_ITEM_IDEAS = 4;
+    private static final int MENU_ITEM_TASKS = 5;
+    private static final int MENU_ITEM_OTHER = 6;
 
     /**
      * onCreate is called when Android starts this Activity from scratch.
@@ -85,6 +107,29 @@ public class NotesList extends ListActivity {
 
         // The user does not need to hold down the key to use menu shortcuts.
         setDefaultKeyMode(DEFAULT_KEYS_SHORTCUT);
+
+        // 设置自定义ActionBar
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayShowCustomEnabled(true);
+            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setDisplayShowHomeEnabled(false);
+            
+            // 创建自定义视图
+            View customView = getLayoutInflater().inflate(R.layout.actionbar_custom_view, null);
+            actionBar.setCustomView(customView);
+            
+            // 查找汉堡菜单按钮并设置点击事件
+            ImageButton hamburgerButton = (ImageButton) customView.findViewById(R.id.actionbar_menu);
+            if (hamburgerButton != null) {
+                hamburgerButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showCategoriesPopupMenu(v);
+                    }
+                });
+            }
+        }
 
         /* If no data is given in the Intent that started this Activity, then this Activity
          * was started when the intent filter matched a MAIN action. We should use the default
@@ -104,7 +149,13 @@ public class NotesList extends ListActivity {
          * to be this Activity. The effect is that context menus are enabled for items in the
          * ListView, and the context menu is handled by a method in NotesList.
          */
-        getListView().setOnCreateContextMenuListener(this);
+        getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                showNotePopupMenu(view, id); // 触发自定义PopupMenu
+                return true; // 消费事件，避免系统默认行为
+            }
+        });
 
         /* Performs a managed query. The Activity handles closing and requerying the cursor
          * when needed.
@@ -151,6 +202,20 @@ public class NotesList extends ListActivity {
                     long date = cursor.getLong(columnIndex);
                     ((android.widget.TextView) view).setText(formatDate(date));
                     return true;
+                } else if (view.getId() == android.R.id.text1) {
+                    // Apply background color if available
+                    String backgroundColor = cursor.getString(COLUMN_INDEX_BACKGROUND_COLOR);
+                    if (backgroundColor != null && !backgroundColor.isEmpty()) {
+                        try {
+                            view.setBackgroundColor(Color.parseColor(backgroundColor));
+                        } catch (IllegalArgumentException e) {
+                            // Invalid color, use default
+                            view.setBackgroundColor(Color.TRANSPARENT);
+                        }
+                    } else {
+                        view.setBackgroundColor(Color.TRANSPARENT);
+                    }
+                    return false;
                 }
                 return false;
             }
@@ -188,7 +253,8 @@ public class NotesList extends ListActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate menu from XML resource
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.list_options_menu, menu);
+        inflater.inflate(R.menu.list_options_menu_extended, menu);
+
 
         // Add search functionality
         MenuItem searchItem = menu.findItem(R.id.menu_search);
@@ -232,6 +298,21 @@ public class NotesList extends ListActivity {
                         NotePad.Notes.COLUMN_NAME_NOTE + " LIKE ?";
             selectionArgs = new String[]{"%" + query + "%", "%" + query + "%"};
         }
+        
+        // Add type filter if we have one
+        if (currentFilterType != null && !currentFilterType.isEmpty()) {
+            String typeSelection = NotePad.Notes.COLUMN_NAME_TYPE + " = ?";
+            if (selection != null) {
+                selection = "(" + selection + ") AND " + typeSelection;
+                String[] newArgs = new String[selectionArgs.length + 1];
+                System.arraycopy(selectionArgs, 0, newArgs, 0, selectionArgs.length);
+                newArgs[selectionArgs.length] = currentFilterType;
+                selectionArgs = newArgs;
+            } else {
+                selection = typeSelection;
+                selectionArgs = new String[]{currentFilterType};
+            }
+        }
 
         Cursor cursor = managedQuery(
                 getIntent().getData(),
@@ -242,6 +323,75 @@ public class NotesList extends ListActivity {
         );
 
         adapter.changeCursor(cursor);
+    }
+
+    private void filterByCategory(String category) {
+        currentFilterType = category;
+        String selection = null;
+        String[] selectionArgs = null;
+        
+        if (category != null && !category.isEmpty()) {
+            selection = NotePad.Notes.COLUMN_NAME_TYPE + " = ?";
+            selectionArgs = new String[]{category};
+        }
+
+        Cursor cursor = managedQuery(
+                getIntent().getData(),
+                PROJECTION,
+                selection,
+                selectionArgs,
+                NotePad.Notes.DEFAULT_SORT_ORDER
+        );
+
+        adapter.changeCursor(cursor);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // 处理分类菜单项
+        switch (item.getItemId()) {
+            case MENU_ITEM_ALL:
+                currentFilterType = null;
+                performSearch("");
+                return true;
+            case MENU_ITEM_PERSONAL:
+                filterByCategory("Personal");
+                return true;
+            case MENU_ITEM_WORK:
+                filterByCategory("Work");
+                return true;
+            case MENU_ITEM_IDEAS:
+                filterByCategory("Ideas");
+                return true;
+            case MENU_ITEM_TASKS:
+                filterByCategory("Tasks");
+                return true;
+            case MENU_ITEM_OTHER:
+                filterByCategory("Other");
+                return true;
+        }
+        
+        // 处理其他菜单项
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_add) {
+            /*
+             * Launches a new Activity using an Intent. The intent filter for the Activity
+             * has to have action ACTION_INSERT. No category is set, so DEFAULT is assumed.
+             * In effect, this starts the NoteEditor Activity in NotePad.
+             */
+            startActivity(new Intent(Intent.ACTION_INSERT, getIntent().getData()));
+            return true;
+        } else if (itemId == R.id.menu_paste) {
+            /*
+             * Launches a new Activity using an Intent. The intent filter for the Activity
+             * has to have action ACTION_PASTE. No category is set, so DEFAULT is assumed.
+             * In effect, this starts the NoteEditor Activity in NotePad.
+             */
+            startActivity(new Intent(Intent.ACTION_PASTE, getIntent().getData()));
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
@@ -325,42 +475,6 @@ public class NotesList extends ListActivity {
     }
 
     /**
-     * This method is called when the user selects an option from the menu, but no item
-     * in the list is selected. If the option was INSERT, then a new Intent is sent out with action
-     * ACTION_INSERT. The data from the incoming Intent is put into the new Intent. In effect,
-     * this triggers the NoteEditor activity in the NotePad application.
-     *
-     * If the item was not INSERT, then most likely it was an alternative option from another
-     * application. The parent method is called to process the item.
-     * @param item The menu item that was selected by the user
-     * @return True, if the INSERT menu item was selected; otherwise, the result of calling
-     * the parent method.
-     */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int itemId = item.getItemId();
-        if (itemId == R.id.menu_add) {
-            /*
-             * Launches a new Activity using an Intent. The intent filter for the Activity
-             * has to have action ACTION_INSERT. No category is set, so DEFAULT is assumed.
-             * In effect, this starts the NoteEditor Activity in NotePad.
-             */
-            startActivity(new Intent(Intent.ACTION_INSERT, getIntent().getData()));
-            return true;
-        } else if (itemId == R.id.menu_paste) {
-            /*
-             * Launches a new Activity using an Intent. The intent filter for the Activity
-             * has to have action ACTION_PASTE. No category is set, so DEFAULT is assumed.
-             * In effect, this starts the NoteEditor Activity in NotePad.
-             */
-            startActivity(new Intent(Intent.ACTION_PASTE, getIntent().getData()));
-            return true;
-        } else {
-            return super.onOptionsItemSelected(item);
-        }
-    }
-
-    /**
      * This method is called when the user context-clicks a note in the list. NotesList registers
      * itself as the handler for context menus in its ListView (this is done in onCreate()).
      *
@@ -373,139 +487,6 @@ public class NotesList extends ListActivity {
      * @param menuInfo Data associated with view.
      * @throws ClassCastException
      */
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View view, ContextMenuInfo menuInfo) {
-
-        // The data from the menu item.
-        AdapterView.AdapterContextMenuInfo info;
-
-        // Tries to get the position of the item in the ListView that was long-pressed.
-        try {
-            // Casts the incoming data object into the type for AdapterView objects.
-            info = (AdapterView.AdapterContextMenuInfo) menuInfo;
-        } catch (ClassCastException e) {
-            // If the menu object can't be cast, logs an error.
-            Log.e(TAG, "bad menuInfo", e);
-            return;
-        }
-
-        /*
-         * Gets the data associated with the item at the selected position. getItem() returns
-         * whatever the backing adapter of the ListView has associated with the item. In NotesList,
-         * the adapter associated all of the data for a note with its list item. As a result,
-         * getItem() returns that data as a Cursor.
-         */
-        Cursor cursor = (Cursor) getListAdapter().getItem(info.position);
-
-        // If the cursor is empty, then for some reason the adapter can't get the data from the
-        // provider, so returns null to the caller.
-        if (cursor == null) {
-            // For some reason the requested item isn't available, do nothing
-            return;
-        }
-
-        // Inflate menu from XML resource
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.list_context_menu, menu);
-
-        // Sets the menu header to be the title of the selected note.
-        menu.setHeaderTitle(cursor.getString(COLUMN_INDEX_TITLE));
-
-        // Append to the
-        // menu items for any other activities that can do stuff with it
-        // as well.  This does a query on the system for any activities that
-        // implement the ALTERNATIVE_ACTION for our data, adding a menu item
-        // for each one that is found.
-        Intent intent = new Intent(null, Uri.withAppendedPath(getIntent().getData(), 
-                                        Integer.toString((int) info.id) ));
-        intent.addCategory(Intent.CATEGORY_ALTERNATIVE);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        menu.addIntentOptions(Menu.CATEGORY_ALTERNATIVE, 0, 0,
-                new ComponentName(this, NotesList.class), null, intent, 0, null);
-    }
-
-    /**
-     * This method is called when the user selects an item from the context menu
-     * (see onCreateContextMenu()). The only menu items that are actually handled are DELETE and
-     * COPY. Anything else is an alternative option, for which default handling should be done.
-     *
-     * @param item The selected menu item
-     * @return True if the menu item was DELETE, and no default processing is need, otherwise false,
-     * which triggers the default handling of the item.
-     * @throws ClassCastException
-     */
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        // The data from the menu item.
-        AdapterView.AdapterContextMenuInfo info;
-
-        /*
-         * Gets the extra info from the menu item. When an note in the Notes list is long-pressed, a
-         * context menu appears. The menu items for the menu automatically get the data
-         * associated with the note that was long-pressed. The data comes from the provider that
-         * backs the list.
-         *
-         * The note's data is passed to the context menu creation routine in a ContextMenuInfo
-         * object.
-         *
-         * When one of the context menu items is clicked, the same data is passed, along with the
-         * note ID, to onContextItemSelected() via the item parameter.
-         */
-        try {
-            // Casts the data object in the item into the type for AdapterView objects.
-            info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        } catch (ClassCastException e) {
-
-            // If the object can't be cast, logs an error
-            Log.e(TAG, "bad menuInfo", e);
-
-            // Triggers default processing of the menu item.
-            return false;
-        }
-        // Appends the selected note's ID to the URI sent with the incoming Intent.
-        Uri noteUri = ContentUris.withAppendedId(getIntent().getData(), info.id);
-
-        /*
-         * Gets the menu item's ID and compares it to known actions.
-         */
-        int itemId = item.getItemId();
-        if (itemId == R.id.context_open) {
-            // Launch activity to view/edit the currently selected item
-            startActivity(new Intent(Intent.ACTION_EDIT, noteUri));
-            return true;
-        } else if (itemId == R.id.context_copy) {
-            // Gets a handle to the clipboard service.
-            ClipboardManager clipboard = (ClipboardManager)
-                    getSystemService(Context.CLIPBOARD_SERVICE);
-
-            // Copies the notes URI to the clipboard. In effect, this copies the note itself
-            clipboard.setPrimaryClip(ClipData.newUri(   // new clipboard item holding a URI
-                    getContentResolver(),               // resolver to retrieve URI info
-                    "Note",                             // label for the clip
-                    noteUri)                            // the URI
-            );
-
-            // Returns to the caller and skips further processing.
-            return true;
-        } else if (itemId == R.id.context_delete) {
-
-            // Deletes the note from the provider by passing in a URI in note ID format.
-            // Please see the introductory note about performing provider operations on the
-            // UI thread.
-            getContentResolver().delete(
-                    noteUri,  // The URI of the provider
-                    null,     // No where clause is needed, since only a single note ID is being
-                    // passed in.
-                    null      // No where clause is used, so no where arguments are needed.
-            );
-
-            // Returns to the caller and skips further processing.
-            return true;
-        } else {
-            return super.onContextItemSelected(item);
-        }
-
-    }
 
     /**
      * This method is called when the user clicks a note in the displayed list.
@@ -539,5 +520,76 @@ public class NotesList extends ListActivity {
             // Intent's data is the note ID URI. The effect is to call NoteEdit.
             startActivity(new Intent(Intent.ACTION_EDIT, uri));
         }
+    }
+
+    private void showNotePopupMenu(View anchor, long noteId) {
+        // 1. 初始化PopupMenu并加载菜单布局
+        PopupMenu popupMenu = new PopupMenu(this, anchor);
+        popupMenu.inflate(R.menu.list_context_menu); // 加载原context菜单的布局文件
+
+        // 2. 强制菜单向下展开（避免向上挤压）
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            popupMenu.setGravity(Gravity.BOTTOM | Gravity.START);
+        } else {
+            // 低版本兼容：通过反射强制设置显示方向（可选）
+            try {
+                Field field = popupMenu.getClass().getDeclaredField("mPopup");
+                field.setAccessible(true);
+                Object popup = field.get(popupMenu);
+                Method setGravity = popup.getClass().getMethod("setGravity", int.class);
+                setGravity.invoke(popup, Gravity.BOTTOM | Gravity.START);
+            } catch (Exception e) {
+                Log.e(TAG, "设置PopupMenu方向失败", e);
+            }
+        }
+
+        // 3. 处理菜单项点击事件
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Uri noteUri = ContentUris.withAppendedId(getIntent().getData(), noteId);
+                int itemId = item.getItemId();
+
+                if (itemId == R.id.context_open) {
+                    startActivity(new Intent(Intent.ACTION_EDIT, noteUri));
+                    return true;
+                } else if (itemId == R.id.context_copy) {
+                    ClipboardManager clipboard = (ClipboardManager)
+                            getSystemService(Context.CLIPBOARD_SERVICE);
+                    clipboard.setPrimaryClip(ClipData.newUri(
+                            getContentResolver(), "Note", noteUri));
+                    return true;
+                } else if (itemId == R.id.context_delete) {
+                    getContentResolver().delete(noteUri, null, null);
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        // 4. 显示PopupMenu
+        popupMenu.show();
+    }
+
+    private void showCategoriesPopupMenu(View anchor) {
+        PopupMenu popupMenu = new PopupMenu(this, anchor);
+        
+        // 手动添加菜单项，使用自定义ID而不是R.id
+        Menu menu = popupMenu.getMenu();
+        menu.add(Menu.NONE, MENU_ITEM_ALL, Menu.NONE, "All Notes");
+        menu.add(Menu.NONE, MENU_ITEM_PERSONAL, Menu.NONE, "Personal");
+        menu.add(Menu.NONE, MENU_ITEM_WORK, Menu.NONE, "Work");
+        menu.add(Menu.NONE, MENU_ITEM_IDEAS, Menu.NONE, "Ideas");
+        menu.add(Menu.NONE, MENU_ITEM_TASKS, Menu.NONE, "Tasks");
+        menu.add(Menu.NONE, MENU_ITEM_OTHER, Menu.NONE, "Other");
+        
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                return onOptionsItemSelected(item);
+            }
+        });
+        
+        popupMenu.show();
     }
 }

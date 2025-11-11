@@ -5,9 +5,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-
+  
           http://www.apache.org/licenses/LICENSE-2.0
-
+  
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -28,12 +28,16 @@
         android:minSdkVersion="21"
         android:targetSdkVersion="34" />
 
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
+    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
+
     <application
         android:debuggable="true"
         android:extractNativeLibs="true"
         android:icon="@drawable/app_notes"
         android:label="@string/app_name"
-        android:testOnly="true" >
+        android:testOnly="true"
+        android:theme="@android:style/Theme.Holo.Light" >
         <provider
             android:name="com.example.android.notepad.NotePadProvider"
             android:authorities="com.google.provider.NotePad"
@@ -120,23 +124,16 @@
             <intent-filter android:label="@string/resolve_title" >
 
                 <!--
-                     This is the action we perform.  It is a custom action we
-                     define for our application, not a generic VIEW or EDIT
-                     action since we are not a general note viewer/editor.
+                     This action key opens the activity when the user performs an
+                     alternative action on note data. ACTION_INSERT means that the
+                     activity is inserting data, and ACTION_PASTE means that the
+                     activity is receiving data from the clipboard.
                 -->
                 <action android:name="com.android.notepad.action.EDIT_TITLE" />
-                <!-- DEFAULT: execute if being directly invoked. -->
-                <category android:name="android.intent.category.DEFAULT" />
-                <!--
-                     ALTERNATIVE: show as an alternative action when the user is
-                     working with this type of data.
-                -->
+
                 <category android:name="android.intent.category.ALTERNATIVE" />
-                <!--
-                     SELECTED_ALTERNATIVE: show as an alternative action the user
-                     can perform when selecting this type of data.
-                -->
                 <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
+                <category android:name="android.intent.category.DEFAULT" />
                 <!-- This is the data type we operate on. -->
                 <data android:mimeType="vnd.android.cursor.item/vnd.google.note" />
             </intent-filter>

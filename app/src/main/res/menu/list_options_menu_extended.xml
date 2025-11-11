@@ -9,7 +9,6 @@
     <!--  If there is currently data in the clipboard, this adds a PASTE menu item to the menu
           so that the user can paste in the data.. -->
     <item android:id="@+id/menu_paste"
-          android:icon="@drawable/ic_menu_compose"
           android:title="@string/menu_paste"
           android:alphabeticShortcut='p' />
           
@@ -18,4 +17,5 @@
           android:icon="@drawable/ic_menu_search"
           android:showAsAction="always|collapseActionView"
           android:actionViewClass="android.widget.SearchView" />
+
 </menu>

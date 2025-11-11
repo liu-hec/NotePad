@@ -150,5 +150,17 @@ public final class NotePad {
          * <P>Type: INTEGER (long from System.curentTimeMillis())</P>
          */
         public static final String COLUMN_NAME_MODIFICATION_DATE = "modified";
+        
+        /**
+         * Column name for the note type/category
+         * <P>Type: TEXT</P>
+         */
+        public static final String COLUMN_NAME_TYPE = "type";
+        
+        /**
+         * Column name for the note background color
+         * <P>Type: TEXT</P>
+         */
+        public static final String COLUMN_NAME_BACKGROUND_COLOR = "background_color";
     }
 }
