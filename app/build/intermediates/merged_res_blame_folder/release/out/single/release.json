@@ -1,0 +1,154 @@
+[
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/mipmap-anydpi-v26_ic_menu_search.xml.flat",
+        "source": "com.example.android.notepad.app-main-5:/mipmap-anydpi-v26/ic_menu_search.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_menu_save.png.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable/ic_menu_save.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/menu_list_options_menu_extended.xml.flat",
+        "source": "com.example.android.notepad.app-main-5:/menu/list_options_menu_extended.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_menu_edit.png.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable/ic_menu_edit.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/mipmap-xxxhdpi_ic_menu_search.webp.flat",
+        "source": "com.example.android.notepad.app-main-5:/mipmap-xxxhdpi/ic_menu_search.webp"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-ldpi_live_folder_notes.png.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable-ldpi/live_folder_notes.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/menu_editor_options_menu.xml.flat",
+        "source": "com.example.android.notepad.app-main-5:/menu/editor_options_menu.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_search_background.xml.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable/search_background.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/layout_note_editor_extended.xml.flat",
+        "source": "com.example.android.notepad.app-main-5:/layout/note_editor_extended.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-hdpi_ic_menu_compose.png.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable-hdpi/ic_menu_compose.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/mipmap-xxhdpi_ic_menu_search_round.webp.flat",
+        "source": "com.example.android.notepad.app-main-5:/mipmap-xxhdpi/ic_menu_search_round.webp"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_app_notes.png.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable/app_notes.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_menu_revert.png.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable/ic_menu_revert.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-hdpi_ic_menu_revert.png.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable-hdpi/ic_menu_revert.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-hdpi_ic_menu_save.png.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable-hdpi/ic_menu_save.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/menu_list_context_menu.xml.flat",
+        "source": "com.example.android.notepad.app-main-5:/menu/list_context_menu.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-hdpi_live_folder_notes.png.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable-hdpi/live_folder_notes.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/mipmap-xhdpi_ic_menu_search.webp.flat",
+        "source": "com.example.android.notepad.app-main-5:/mipmap-xhdpi/ic_menu_search.webp"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/layout_actionbar_custom_view.xml.flat",
+        "source": "com.example.android.notepad.app-main-5:/layout/actionbar_custom_view.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/mipmap-xxxhdpi_ic_menu_search_round.webp.flat",
+        "source": "com.example.android.notepad.app-main-5:/mipmap-xxxhdpi/ic_menu_search_round.webp"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-hdpi_app_notes.png.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable-hdpi/app_notes.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/mipmap-mdpi_ic_menu_search_round.webp.flat",
+        "source": "com.example.android.notepad.app-main-5:/mipmap-mdpi/ic_menu_search_round.webp"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/mipmap-anydpi-v26_ic_menu_search_round.xml.flat",
+        "source": "com.example.android.notepad.app-main-5:/mipmap-anydpi-v26/ic_menu_search_round.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-hdpi_ic_menu_edit.png.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable-hdpi/ic_menu_edit.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_menu_hamburger.xml.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable/ic_menu_hamburger.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/mipmap-mdpi_ic_menu_search.webp.flat",
+        "source": "com.example.android.notepad.app-main-5:/mipmap-mdpi/ic_menu_search.webp"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_live_folder_notes.png.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable/live_folder_notes.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/mipmap-xhdpi_ic_menu_search_round.webp.flat",
+        "source": "com.example.android.notepad.app-main-5:/mipmap-xhdpi/ic_menu_search_round.webp"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_menu_compose.png.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable/ic_menu_compose.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-ldpi_app_notes.png.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable-ldpi/app_notes.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/layout_title_editor.xml.flat",
+        "source": "com.example.android.notepad.app-main-5:/layout/title_editor.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/layout_noteslist_item.xml.flat",
+        "source": "com.example.android.notepad.app-main-5:/layout/noteslist_item.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_menu_search.xml.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable/ic_menu_search.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/mipmap-hdpi_ic_menu_search_round.webp.flat",
+        "source": "com.example.android.notepad.app-main-5:/mipmap-hdpi/ic_menu_search_round.webp"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-hdpi_ic_menu_delete.png.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable-hdpi/ic_menu_delete.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/mipmap-hdpi_ic_menu_search.webp.flat",
+        "source": "com.example.android.notepad.app-main-5:/mipmap-hdpi/ic_menu_search.webp"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/mipmap-xxhdpi_ic_menu_search.webp.flat",
+        "source": "com.example.android.notepad.app-main-5:/mipmap-xxhdpi/ic_menu_search.webp"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_menu_delete.png.flat",
+        "source": "com.example.android.notepad.app-main-5:/drawable/ic_menu_delete.png"
+    }
+]

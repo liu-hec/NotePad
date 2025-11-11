@@ -41,7 +41,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 /**
  * This Activity handles "editing" a note, where editing is responding to
@@ -83,10 +85,10 @@ public class NoteEditor extends Activity {
     private Uri mUri;
     private Cursor mCursor;
     private EditText mText;
-    private EditText mTitleText;
     private Spinner mTypeSpinner;
     private Spinner mColorSpinner;
     private String mOriginalContent;
+    private String mCurrentTitle; // 新增：用于存储当前标题
     
     // Predefined categories and colors
     private static final String[] CATEGORIES = {"All", "Personal", "Work", "Ideas", "Tasks", "Other"};
@@ -159,7 +161,7 @@ public class NoteEditor extends Activity {
         super.onCreate(savedInstanceState);
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {
-            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setDisplayShowTitleEnabled(true);
             actionBar.setDisplayShowHomeEnabled(false);
         }
         /*
@@ -250,7 +252,6 @@ public class NoteEditor extends Activity {
 
         // Gets a handle to the EditText in the the layout.
         mText = (EditText) findViewById(R.id.note);
-        mTitleText = (EditText) findViewById(R.id.title);
         mTypeSpinner = (Spinner) findViewById(R.id.type_spinner);
         mColorSpinner = (Spinner) findViewById(R.id.color_spinner);
         
@@ -301,10 +302,6 @@ public class NoteEditor extends Activity {
     protected void onResume() {
         super.onResume();
 
-        /*
-         * mCursor is initialized, since onCreate() always precedes onResume for any running
-         * process. This tests that it's not null, since it should always contain data.
-         */
         if (mCursor != null) {
             // Requery in case something changed while paused (such as the title)
             mCursor.requery();
@@ -321,12 +318,14 @@ public class NoteEditor extends Activity {
                 // Set the title of the Activity to include the note title
                 int colTitleIndex = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_TITLE);
                 String title = mCursor.getString(colTitleIndex);
+                mCurrentTitle = title; // 保存当前标题
                 Resources res = getResources();
                 String text = String.format(res.getString(R.string.title_edit), title);
                 setTitle(text);
             // Sets the title to "create" for inserts
             } else if (mState == STATE_INSERT) {
-                setTitle(getText(R.string.title_create));
+                mCurrentTitle = getString(R.string.title_create);
+                setTitle(mCurrentTitle);
             }
 
             /*
@@ -341,12 +340,7 @@ public class NoteEditor extends Activity {
             int colNoteIndex = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_NOTE);
             String note = mCursor.getString(colNoteIndex);
             mText.setTextKeepState(note);
-            
-            // Set title
-            int colTitleIndex = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_TITLE);
-            String title = mCursor.getString(colTitleIndex);
-            mTitleText.setText(title);
-            
+
             // Set type
             int colTypeIndex = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_TYPE);
             String type = mCursor.getString(colTypeIndex);
@@ -358,7 +352,7 @@ public class NoteEditor extends Activity {
                     }
                 }
             }
-            
+
             // Set color
             int colColorIndex = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR);
             String color = mCursor.getString(colColorIndex);
@@ -435,9 +429,6 @@ public class NoteEditor extends Activity {
                 setResult(RESULT_CANCELED);
                 return;
             }
-
-            // Get the current title
-            String title = mTitleText.getText().toString();
             
             // Get the current type
             String type = (String) mTypeSpinner.getSelectedItem();
@@ -451,11 +442,7 @@ public class NoteEditor extends Activity {
             // Creates a map to contain the new values for the columns
             ContentValues values = new ContentValues();
             values.put(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, System.currentTimeMillis());
-            
-            // Only update title if it's not empty
-            if (title != null && !title.isEmpty()) {
-                values.put(NotePad.Notes.COLUMN_NAME_TITLE, title);
-            }
+
             
             // Update type and color
             values.put(NotePad.Notes.COLUMN_NAME_TYPE, type);
@@ -501,7 +488,6 @@ public class NoteEditor extends Activity {
         // Inflate menu from XML resource
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.editor_options_menu, menu);
-
         // Only add extra menu items for a saved note
         if (mState == STATE_EDIT) {
             // Append to the
@@ -538,8 +524,7 @@ public class NoteEditor extends Activity {
         int itemId = item.getItemId();
         if (itemId == R.id.menu_save) {
             String text = mText.getText().toString();
-            String title = mTitleText.getText().toString();
-            updateNote(text, title);
+            updateNote(text, mCurrentTitle);
             finish();
         } else if (itemId == R.id.menu_delete) {
             deleteNote();
@@ -653,11 +638,8 @@ public class NoteEditor extends Activity {
             }
             // In the values map, sets the value of the title
             values.put(NotePad.Notes.COLUMN_NAME_TITLE, title);
-        } else if (title != null) {
-            // In the values map, sets the value of the title
-            values.put(NotePad.Notes.COLUMN_NAME_TITLE, title);
+            mCurrentTitle = title; // 更新当前标题
         }
-
         // Add type and color
         String type = (String) mTypeSpinner.getSelectedItem();
         if (type != null && !type.isEmpty()) {
@@ -726,4 +708,6 @@ public class NoteEditor extends Activity {
             mText.setText("");
         }
     }
+
+
 }

@@ -1,0 +1,318 @@
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\build.gradle:11: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
+        targetSdkVersion 34
+        ~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "OldTargetApi":
+   When your application runs on a version of Android that is more recent than
+   your targetSdkVersion specifies that it has been tested with, various
+   compatibility modes kick in. This ensures that your application continues
+   to work, but it may look out of place. For example, if the targetSdkVersion
+   is less than 14, your app may get an option button in the UI.
+
+   To fix this issue, set the targetSdkVersion to the highest available value.
+   Then test your app to make sure everything works correctly. You may want to
+   consult the compatibility notes to see what changes apply to each version
+   you are adding support for:
+   https://developer.android.com/reference/android/os/Build.VERSION_CODES.html
+   as well as follow this guide:
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.
+   html
+
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.html
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\java\com\example\android\notepad\NotesList.java:536: Warning: Accessing internal APIs via reflection is not supported and may not work on all devices or in the future [PrivateApi]
+                Field field = popupMenu.getClass().getDeclaredField("mPopup");
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "PrivateApi":
+   Using reflection to access hidden/private Android APIs is not safe; it will
+   often not work on devices from other vendors, and it may suddenly stop
+   working (if the API is removed) or crash spectacularly (if the API behavior
+   changes, since there are no guarantees for compatibility).
+
+   https://developer.android.com/preview/restrictions-non-sdk-interfaces
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\java\com\example\android\notepad\NotesList.java:87: Warning: To get local formatting use getDateInstance(), getDateTimeInstance(), or getTimeInstance(), or use new SimpleDateFormat(String template, Locale locale) with for example Locale.US for ASCII dates. [SimpleDateFormat]
+    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SimpleDateFormat":
+   Almost all callers should use getDateInstance(), getDateTimeInstance(), or
+   getTimeInstance() to get a ready-made instance of SimpleDateFormat suitable
+   for the user's locale. The main reason you'd create an instance this class
+   directly is because you need to format/parse a specific machine-readable
+   format, in which case you almost certainly want to explicitly ask for US to
+   ensure that you get ASCII digits (rather than, say, Arabic digits).
+
+   Therefore, you should either use the form of the SimpleDateFormat
+   constructor where you pass in an explicit locale, such as Locale.US, or use
+   one of the get instance methods, or suppress this error if really know what
+   you are doing.
+
+   https://developer.android.com/reference/java/text/SimpleDateFormat.html
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\java\com\example\android\notepad\NotesList.java:119: Warning: Avoid passing null as the view root (needed to resolve layout parameters on the inflated layout's root element) [InflateParams]
+            View customView = getLayoutInflater().inflate(R.layout.actionbar_custom_view, null);
+                                                                                          ~~~~
+
+   Explanation for issues of type "InflateParams":
+   When inflating a layout, avoid passing in null as the parent view, since
+   otherwise any layout parameters on the root of the inflated layout will be
+   ignored.
+
+   https://www.bignerdranch.com/blog/understanding-androids-layoutinflater-inflate/
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:24: Warning: This minSdkVersion value (21) is not used; it is always overridden by the value specified in the Gradle build script (21) [GradleOverrides]
+    <uses-sdk android:minSdkVersion="21" />
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleOverrides":
+   The value of (for example) minSdkVersion is only used if it is not
+   specified in the build.gradle build scripts. When specified in the Gradle
+   build scripts, the manifest value is ignored and can be misleading, so
+   should be removed to avoid ambiguity.
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\layout\note_editor_extended.xml:57: Warning: android:capitalize is deprecated: Use inputType instead [Deprecated]
+        android:capitalize="sentences"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\layout\title_editor.xml:32: Warning: android:autoText is deprecated: Use inputType instead [Deprecated]
+        android:autoText="true"
+        ~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\layout\title_editor.xml:33: Warning: android:capitalize is deprecated: Use inputType instead [Deprecated]
+        android:capitalize="sentences"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Deprecated":
+   Deprecated views, attributes and so on are deprecated because there is a
+   better way to do something. Do it that new way. You've been warned.
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\layout\noteslist_item.xml:40: Warning: Nested weights are bad for performance [NestedWeights]
+            android:layout_weight="1"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "NestedWeights":
+   Layout weights require a widget to be measured twice. When a LinearLayout
+   with non-zero weights is nested inside another LinearLayout with non-zero
+   weights, then the number of measurements increase exponentially.
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\mipmap-anydpi-v26\ic_menu_search.xml:2: Warning: The resource R.mipmap.ic_menu_search appears to be unused [UnusedResources]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\mipmap-anydpi-v26\ic_menu_search_round.xml:2: Warning: The resource R.mipmap.ic_menu_search_round appears to be unused [UnusedResources]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\drawable\search_background.xml:2: Warning: The resource R.drawable.search_background appears to be unused [UnusedResources]
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+^
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\values\strings.xml:36: Warning: The resource R.string.nothing_to_save appears to be unused [UnusedResources]
+    <string name="nothing_to_save">There is nothing to save</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\layout\note_editor_extended.xml:45: Warning: This namespace declaration is redundant [RedundantNamespace]
+    <view xmlns:android="http://schemas.android.com/apk/res/android"
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "RedundantNamespace":
+   In Android XML documents, only specify the namespace on the root/document
+   element. Namespace declarations elsewhere in the document are typically
+   accidental leftovers from copy/pasting XML from other files or
+   documentation.
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\mipmap-xxxhdpi\ic_menu_search.webp: Warning: The following images appear both as density independent .xml files and as bitmap files: srcmainresdrawableic_menu_search.xml, srcmainresmipmap-hdpiic_menu_search.webp [IconXmlAndPng]
+
+   Explanation for issues of type "IconXmlAndPng":
+   If a drawable resource appears as an .xml file in the drawable/ folder,
+   it's usually not intentional for it to also appear as a bitmap using the
+   same name; generally you expect the drawable XML file to define states and
+   each state has a corresponding drawable bitmap.
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\drawable\app_notes.png: Warning: Found bitmap drawable res/drawable/app_notes.png in densityless folder [IconLocation]
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\drawable\ic_menu_compose.png: Warning: Found bitmap drawable res/drawable/ic_menu_compose.png in densityless folder [IconLocation]
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\drawable\ic_menu_delete.png: Warning: Found bitmap drawable res/drawable/ic_menu_delete.png in densityless folder [IconLocation]
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\drawable\ic_menu_edit.png: Warning: Found bitmap drawable res/drawable/ic_menu_edit.png in densityless folder [IconLocation]
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\drawable\ic_menu_revert.png: Warning: Found bitmap drawable res/drawable/ic_menu_revert.png in densityless folder [IconLocation]
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\drawable\ic_menu_save.png: Warning: Found bitmap drawable res/drawable/ic_menu_save.png in densityless folder [IconLocation]
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\drawable\live_folder_notes.png: Warning: Found bitmap drawable res/drawable/live_folder_notes.png in densityless folder [IconLocation]
+
+   Explanation for issues of type "IconLocation":
+   The res/drawable folder is intended for density-independent graphics such
+   as shapes defined in XML. For bitmaps, move it to drawable-mdpi and
+   consider providing higher and lower resolution versions in drawable-ldpi,
+   drawable-hdpi and drawable-xhdpi. If the icon really is density independent
+   (for example a solid color) you can place it in drawable-nodpi.
+
+   https://developer.android.com/guide/practices/screens_support.html
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res: Warning: Missing density variation folders in src\main\res: drawable-mdpi, drawable-xhdpi, drawable-xxhdpi [IconMissingDensityFolder]
+
+   Explanation for issues of type "IconMissingDensityFolder":
+   Icons will look best if a custom version is provided for each of the major
+   screen density classes (low, medium, high, extra-high, extra-extra-high).
+   This lint check identifies folders which are missing, such as
+   drawable-hdpi.
+
+   Low density is not really used much anymore, so this check ignores the ldpi
+   density. To force lint to include it, set the environment variable
+   ANDROID_LINT_INCLUDE_LDPI=true. For more information on current density
+   usage, see https://developer.android.com/about/dashboards
+
+   https://developer.android.com/guide/practices/screens_support.html
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:45: Error: Missing URL [AppLinkUrlError]
+            <intent-filter>
+            ^
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:69: Error: Missing URL [AppLinkUrlError]
+            <intent-filter android:label="@string/resolve_edit">
+            ^
+
+   Explanation for issues of type "AppLinkUrlError":
+   Ensure the URL is supported by your app, to get installs and traffic to
+   your app from Google Search.
+
+   https://g.co/AppIndexing/AndroidStudio
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\layout\title_editor.xml:25: Warning: This text field does not specify an inputType [TextFields]
+    <EditText android:id="@+id/title" 
+     ~~~~~~~~
+
+   Explanation for issues of type "TextFields":
+   Providing an inputType attribute on a text field improves usability because
+   depending on the data to be input, optimized keyboards can be shown to the
+   user (such as just digits and parentheses for a phone number). 
+
+   The lint detector also looks at the id of the view, and if the id offers a
+   hint of the purpose of the field (for example, the id contains the phrase
+   phone or email), then lint will also ensure that the inputType contains the
+   corresponding type attributes.
+
+   If you really want to keep the text field generic, you can suppress this
+   warning by setting inputType="text".
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\menu\editor_options_menu.xml:7: Warning: Prefer "ifRoom" instead of "always" [AlwaysShowAction]
+          android:showAsAction="always" />
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\menu\list_options_menu_extended.xml:8: Warning: Prefer "ifRoom" instead of "always" [AlwaysShowAction]
+          android:showAsAction="always" />
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "AlwaysShowAction":
+   Using showAsAction="always" in menu XML, or MenuItem.SHOW_AS_ACTION_ALWAYS
+   in Java code is usually a deviation from the user interface style guide.Use
+   ifRoom or the corresponding MenuItem.SHOW_AS_ACTION_IF_ROOM instead.
+
+   If always is used sparingly there are usually no problems and behavior is
+   roughly equivalent to ifRoom but with preference over other ifRoom items.
+   Using it more than twice in the same menu is a bad idea.
+
+   This check looks for menu XML files that contain more than two always
+   actions, or some always actions and no ifRoom actions. In Java code, it
+   looks for projects that contain references to
+   MenuItem.SHOW_AS_ACTION_ALWAYS and no references to
+   MenuItem.SHOW_AS_ACTION_IF_ROOM.
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\layout\noteslist_item.xml:23: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+
+   Explanation for issues of type "ContentDescription":
+   Non-textual widgets like ImageViews and ImageButtons should use the
+   contentDescription attribute to specify a textual description of the widget
+   such that screen readers and other accessibility tools can adequately
+   describe the user interface.
+
+   Note that elements in application screens that are purely decorative and do
+   not provide any content or enable a user action should not have
+   accessibility content descriptions. In this case, set their descriptions to
+   @null. If your app's minSdkVersion is 16 or higher, you can instead set
+   these graphical elements' android:importantForAccessibility attributes to
+   no.
+
+   Note that for text fields, you should not set both the hint and the
+   contentDescription attributes since the hint will never be shown. Just set
+   the hint.
+
+   https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\layout\title_editor.xml:25: Warning: Missing accessibility label: provide either a view with an android:labelFor that references this view or provide an android:hint [LabelFor]
+    <EditText android:id="@+id/title" 
+     ~~~~~~~~
+
+   Explanation for issues of type "LabelFor":
+   Editable text fields should provide an android:hint or, provided your
+   minSdkVersion is at least 17, they may be referenced by a view with a
+   android:labelFor attribute.
+
+   When using android:labelFor, be sure to provide an android:text or an
+   android:contentDescription.
+
+   If your view is labeled but by a label in a different layout which includes
+   this one, just suppress this warning from lint.
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\layout\actionbar_custom_view.xml:16: Warning: Hardcoded string "Categories", should use @string resource [HardcodedText]
+        android:contentDescription="Categories" />
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\layout\note_editor_extended.xml:18: Warning: Hardcoded string "Category:", should use @string resource [HardcodedText]
+            android:text="Category:"
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\layout\note_editor_extended.xml:32: Warning: Hardcoded string "Color:", should use @string resource [HardcodedText]
+            android:text="Color:"
+            ~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\layout\actionbar_custom_view.xml:15: Warning: Consider replacing android:layout_marginLeft with android:layout_marginStart="8dp" to better support right-to-left layouts [RtlHardcoded]
+        android:layout_marginLeft="8dp"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\layout\noteslist_item.xml:27: Warning: Consider replacing android:layout_marginRight with android:layout_marginEnd="2dp" to better support right-to-left layouts [RtlHardcoded]
+        android:layout_marginRight="2dp"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res\layout\title_editor.xml:39: Warning: Use "end" instead of "right" to ensure correct behavior in right-to-left locales [RtlHardcoded]
+        android:layout_gravity="right"
+                                ~~~~~
+
+   Explanation for issues of type "RtlHardcoded":
+   Using Gravity#LEFT and Gravity#RIGHT can lead to problems when a layout is
+   rendered in locales where text flows from right to left. Use Gravity#START
+   and Gravity#END instead. Similarly, in XML gravity and layout_gravity
+   attributes, use start rather than left.
+
+   For XML attributes such as paddingLeft and layout_marginLeft, use
+   paddingStart and layout_marginStart. NOTE: If your minSdkVersion is less
+   than 17, you should add both the older left/right attributes as well as the
+   new start/end attributes. On older platforms, where RTL is not supported
+   and the start/end attributes are unknown and therefore ignored, you need
+   the older left/right attributes. There is a separate lint check which
+   catches that type of error.
+
+   (Note: For Gravity#LEFT and Gravity#START, you can use these constants even
+   when targeting older platforms, because the start bitmask is a superset of
+   the left bitmask. Therefore, you can use gravity="start" rather than
+   gravity="left|start".)
+
+2 errors, 34 warnings

@@ -64,8 +64,12 @@
         "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable-ldpi\\app_notes.png"
     },
     {
-        "merged": "com.example.android.notepad.app-merged_res-4:/menu_editor_options_menu.xml.flat",
-        "source": "com.example.android.notepad.app-main-6:/menu/editor_options_menu.xml"
+        "merged": "C:\\Users\\86152\\.gradle\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\menu_editor_options_menu.xml.flat",
+        "source": "C:\\Users\\86152\\.gradle\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\menu\\editor_options_menu.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/layout_note_editor_extended.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/layout/note_editor_extended.xml"
     },
     {
         "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_ic_menu_search.xml.flat",
