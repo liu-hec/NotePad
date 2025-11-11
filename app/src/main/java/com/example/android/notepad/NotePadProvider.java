@@ -46,7 +46,6 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
-
 /**
  * Provides access to a database of notes. Each note has a title, the note
  * itself, a creation date and a modified data.
@@ -679,6 +678,11 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
             // If the incoming URI matches the general notes pattern, does the update based on
             // the incoming data.
             case NOTES:
+                // If the values map doesn't contain the modification date, sets the value to the current
+                // time.
+                if (values.containsKey(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE) == false) {
+                    values.put(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, System.currentTimeMillis());
+                }
 
                 // Does the update and returns the number of rows updated.
                 count = db.update(
@@ -712,6 +716,11 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
                     finalWhere = finalWhere + " AND " + where;
                 }
 
+                // If the values map doesn't contain the modification date, sets the value to the current
+                // time.
+                if (values.containsKey(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE) == false) {
+                    values.put(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, System.currentTimeMillis());
+                }
 
                 // Does the update and returns the number of rows updated.
                 count = db.update(

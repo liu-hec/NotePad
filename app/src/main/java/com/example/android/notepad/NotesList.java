@@ -38,6 +38,10 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.SearchView;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Displays a list of notes. Will display notes from the {@link Uri}
@@ -60,10 +64,17 @@ public class NotesList extends ListActivity {
     private static final String[] PROJECTION = new String[] {
             NotePad.Notes._ID, // 0
             NotePad.Notes.COLUMN_NAME_TITLE, // 1
+            NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE // 2
     };
 
     /** The index of the title column */
     private static final int COLUMN_INDEX_TITLE = 1;
+    private static final int COLUMN_INDEX_MODIFICATION_DATE = 2;
+
+    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+    private SimpleCursorAdapter adapter;
+    private SearchView searchView;
 
     /**
      * onCreate is called when Android starts this Activity from scratch.
@@ -102,7 +113,7 @@ public class NotesList extends ListActivity {
          */
         Cursor cursor = managedQuery(
             getIntent().getData(),            // Use the default content URI for the provider.
-            PROJECTION,                       // Return the note ID and title for each note.
+            PROJECTION,                       // Return the note ID, title and modification date.
             null,                             // No where clause, return all records.
             null,                             // No where clause, therefore no where column values.
             NotePad.Notes.DEFAULT_SORT_ORDER  // Use the default sort order.
@@ -117,15 +128,14 @@ public class NotesList extends ListActivity {
          */
 
         // The names of the cursor columns to display in the view, initialized to the title column
-        String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE } ;
+        String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE, NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE } ;
 
         // The view IDs that will display the cursor columns, initialized to the TextView in
         // noteslist_item.xml
-        int[] viewIDs = { android.R.id.text1 };
+        int[] viewIDs = { android.R.id.text1, R.id.text2 };
 
         // Creates the backing adapter for the ListView.
-        SimpleCursorAdapter adapter
-            = new SimpleCursorAdapter(
+        adapter = new SimpleCursorAdapter(
                       this,                             // The Context for the ListView
                       R.layout.noteslist_item,          // Points to the XML for a list item
                       cursor,                           // The cursor to get items from
@@ -133,8 +143,32 @@ public class NotesList extends ListActivity {
                       viewIDs
               );
 
+        // Add date formatting
+        adapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {
+            @Override
+            public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
+                if (view.getId() == R.id.text2) {
+                    long date = cursor.getLong(columnIndex);
+                    ((android.widget.TextView) view).setText(formatDate(date));
+                    return true;
+                }
+                return false;
+            }
+        });
+
         // Sets the ListView's adapter to be the cursor adapter that was just created.
         setListAdapter(adapter);
+    }
+
+    /**
+     * Format date for display in China timezone
+     */
+    private String formatDate(long timestamp) {
+        if (timestamp == 0) {
+            return "";
+        }
+        DATE_FORMAT.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
+        return DATE_FORMAT.format(new Date(timestamp));
     }
 
     /**
@@ -156,6 +190,27 @@ public class NotesList extends ListActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.list_options_menu, menu);
 
+        // Add search functionality
+        MenuItem searchItem = menu.findItem(R.id.menu_search);
+        searchView = (SearchView) searchItem.getActionView();
+        if (searchView != null) {
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    performSearch(query);
+                    return true;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    if (newText.isEmpty()) {
+                        performSearch("");
+                    }
+                    return true;
+                }
+            });
+        }
+
         // Generate any additional actions that can be performed on the
         // overall list.  In a normal install, there are no additional
         // actions found here, but this allows other applications to extend
@@ -166,6 +221,27 @@ public class NotesList extends ListActivity {
                 new ComponentName(this, NotesList.class), null, intent, 0, null);
 
         return super.onCreateOptionsMenu(menu);
+    }
+
+    private void performSearch(String query) {
+        String selection = null;
+        String[] selectionArgs = null;
+        
+        if (!query.isEmpty()) {
+            selection = NotePad.Notes.COLUMN_NAME_TITLE + " LIKE ? OR " + 
+                        NotePad.Notes.COLUMN_NAME_NOTE + " LIKE ?";
+            selectionArgs = new String[]{"%" + query + "%", "%" + query + "%"};
+        }
+
+        Cursor cursor = managedQuery(
+                getIntent().getData(),
+                PROJECTION,
+                selection,
+                selectionArgs,
+                NotePad.Notes.DEFAULT_SORT_ORDER
+        );
+
+        adapter.changeCursor(cursor);
     }
 
     @Override
