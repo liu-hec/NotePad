@@ -1317,6 +1317,8 @@ string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string app_name
 string button_ok
+string category_label
+string color_label
 string error_message
 string error_title
 string live_folder_name

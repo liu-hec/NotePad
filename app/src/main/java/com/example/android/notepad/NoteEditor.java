@@ -119,7 +119,24 @@ public class NoteEditor extends Activity {
             mRect = new Rect();
             mPaint = new Paint();
             mPaint.setStyle(Paint.Style.STROKE);
-            mPaint.setColor(0x80FFFFFF); // 使用白色线条
+            mPaint.setColor(getLineColor(context)); // 根据主题设置线条颜色
+        }
+        
+        /**
+         * 根据当前主题获取行线颜色
+         * @param context 上下文
+         * @return 行线颜色
+         */
+        private int getLineColor(Context context) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            int theme = prefs.getInt("theme", THEME_LIGHT);
+            
+            // 深色主题使用较亮的线条，浅色主题使用较亮的线条
+            if (theme == THEME_DARK) {
+                return 0x80FFFFFF; // 深色主题使用白色线条
+            } else {
+                return 0x80FFFFFF; // 浅色主题使用白色线条
+            }
         }
 
         /**

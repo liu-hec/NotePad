@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#F5F5F5">
+    android:background="?android:attr/windowBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,30 +17,32 @@
             android:layout_width="36dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Category:"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:text="@string/category_label"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="?android:attr/textColorPrimary" />  
 
         <Spinner
             android:id="@+id/type_spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:layout_marginStart="10dp" />
+            android:layout_marginStart="10dp" />  
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Color:"
+            android:text="@string/color_label"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_marginStart="10dp" />
+            android:layout_marginStart="10dp"
+            android:textColor="?android:attr/textColorPrimary" />  
 
         <Spinner
             android:id="@+id/color_spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:layout_marginStart="10dp" />
+            android:layout_marginStart="10dp" />  
 
     </LinearLayout>
 
@@ -58,6 +59,7 @@
         android:gravity="top"
         android:textSize="22sp"
         android:capitalize="sentences"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:textColor="?android:attr/textColorPrimary" />  
 
 </LinearLayout>

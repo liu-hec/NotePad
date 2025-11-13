@@ -1316,6 +1316,8 @@ int string abc_shareactionprovider_share_with_application 0x7f0d0019
 int string abc_toolbar_collapse_description 0x7f0d001a
 int string app_name 0x7f0d001b
 int string button_ok 0x7f0d001c
+int string category_label 0x7f0d0033
+int string color_label 0x7f0d0034
 int string error_message 0x7f0d001d
 int string error_title 0x7f0d001e
 int string live_folder_name 0x7f0d001f

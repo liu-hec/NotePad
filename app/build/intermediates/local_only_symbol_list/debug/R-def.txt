@@ -56,6 +56,8 @@ menu list_context_menu
 menu list_options_menu_extended
 string app_name
 string button_ok
+string category_label
+string color_label
 string error_message
 string error_title
 string live_folder_name

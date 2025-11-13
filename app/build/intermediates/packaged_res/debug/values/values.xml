@@ -13,6 +13,8 @@
     <color name="text_secondary">#757575</color>
     <string name="app_name">NotePad</string>
     <string name="button_ok">OK</string>
+    <string name="category_label">Category:</string>
+    <string name="color_label">Color:</string>
     <string name="error_message">Error loading note</string>
     <string name="error_title">Error</string>
     <string name="live_folder_name">Live Notes</string>
