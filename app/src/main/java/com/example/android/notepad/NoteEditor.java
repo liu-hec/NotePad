@@ -161,7 +161,7 @@ public class NoteEditor extends Activity {
         super.onCreate(savedInstanceState);
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {
-            actionBar.setDisplayShowTitleEnabled(true);
+            actionBar.setDisplayShowTitleEnabled(true);// 显示标题
             actionBar.setDisplayShowHomeEnabled(false);
         }
         /*
@@ -325,7 +325,7 @@ public class NoteEditor extends Activity {
             // Sets the title to "create" for inserts
             } else if (mState == STATE_INSERT) {
                 mCurrentTitle = getString(R.string.title_create);
-                setTitle(mCurrentTitle);
+                setTitle(mCurrentTitle);// 设置标题
             }
 
             /*

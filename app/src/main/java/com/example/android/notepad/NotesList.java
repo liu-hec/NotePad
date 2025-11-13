@@ -162,13 +162,14 @@ public class NotesList extends ListActivity {
          *
          * Please see the introductory note about performing provider operations on the UI thread.
          */
-        Cursor cursor = managedQuery(
-            getIntent().getData(),            // Use the default content URI for the provider.
-            PROJECTION,                       // Return the note ID, title and modification date.
-            null,                             // No where clause, return all records.
-            null,                             // No where clause, therefore no where column values.
-            NotePad.Notes.DEFAULT_SORT_ORDER  // Use the default sort order.
-        );
+        Cursor cursor = getContentResolver().query(
+                getIntent().getData(),
+                PROJECTION,
+                null,
+                null,
+                NotePad.Notes.DEFAULT_SORT_ORDER
+        );// managedQuery方法而导致的闪退问题 导致搜索框 没有进行搜索进入编辑页面退出后直接闪退
+        //
 
         /*
          * The following two arrays create a "map" between columns in the cursor and view IDs
@@ -290,6 +291,12 @@ public class NotesList extends ListActivity {
     }
 
     private void performSearch(String query) {
+
+        // 检查Activity是否处于有效状态
+        if (isFinishing() || isDestroyed()) {
+            return;
+        }
+
         String selection = null;
         String[] selectionArgs = null;
         
@@ -314,7 +321,8 @@ public class NotesList extends ListActivity {
             }
         }
 
-        Cursor cursor = managedQuery(
+        // 使用 getContentResolver().query() 替代 managedQuery
+        Cursor cursor = getContentResolver().query(
                 getIntent().getData(),
                 PROJECTION,
                 selection,
@@ -322,7 +330,10 @@ public class NotesList extends ListActivity {
                 NotePad.Notes.DEFAULT_SORT_ORDER
         );
 
-        adapter.changeCursor(cursor);
+        // 安全地更换 adapter 的 cursor
+        if (adapter != null && cursor != null) {
+            adapter.changeCursor(cursor);
+        }
     }
 
     private void filterByCategory(String category) {
@@ -335,7 +346,8 @@ public class NotesList extends ListActivity {
             selectionArgs = new String[]{category};
         }
 
-        Cursor cursor = managedQuery(
+        // 使用 getContentResolver().query() 替代 managedQuery
+        Cursor cursor = getContentResolver().query(
                 getIntent().getData(),
                 PROJECTION,
                 selection,
@@ -343,7 +355,10 @@ public class NotesList extends ListActivity {
                 NotePad.Notes.DEFAULT_SORT_ORDER
         );
 
-        adapter.changeCursor(cursor);
+        // 安全地更换 adapter 的 cursor
+        if (adapter != null && cursor != null) {
+            adapter.changeCursor(cursor);
+        }
     }
 
     @Override
@@ -499,6 +514,7 @@ public class NotesList extends ListActivity {
      * @param position The position of v in the displayed list
      * @param id The row ID of the clicked item
      */
+    //点击note进入编辑页面
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
 
