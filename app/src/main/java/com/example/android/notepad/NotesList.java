@@ -114,11 +114,11 @@ public class NotesList extends ListActivity {
             actionBar.setDisplayShowCustomEnabled(true);
             actionBar.setDisplayShowTitleEnabled(false);
             actionBar.setDisplayShowHomeEnabled(false);
-            
+
             // 创建自定义视图
             View customView = getLayoutInflater().inflate(R.layout.actionbar_custom_view, null);
             actionBar.setCustomView(customView);
-            
+
             // 查找汉堡菜单按钮并设置点击事件
             ImageButton hamburgerButton = (ImageButton) customView.findViewById(R.id.actionbar_menu);
             if (hamburgerButton != null) {
@@ -126,16 +126,6 @@ public class NotesList extends ListActivity {
                     @Override
                     public void onClick(View v) {
                         showCategoriesPopupMenu(v);
-                    }
-                });
-            }
-// 查找添加笔记按钮并设置点击事件
-            ImageButton btnAddNote = (ImageButton) customView.findViewById(R.id.btn_add_note);
-            if (btnAddNote != null) {
-                btnAddNote.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(Intent.ACTION_INSERT, getIntent().getData()));
                     }
                 });
             }

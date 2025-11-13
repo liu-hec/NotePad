@@ -20,7 +20,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+
+
+        dependencies {
+            implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+        }
     
+
     lint {
         abortOnError false
     }

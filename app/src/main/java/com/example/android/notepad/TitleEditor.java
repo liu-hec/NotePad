@@ -118,9 +118,11 @@ public class TitleEditor extends Activity {
         // Verifies that the query made in onCreate() actually worked. If it worked, then the
         // Cursor object is not null. If it is *empty*, then mCursor.getCount() == 0.
         if (mCursor != null && mCursor.moveToFirst()) {
-
-            // Displays the current title text in the EditText object.
-            mText.setText(mCursor.getString(COLUMN_INDEX_TITLE));
+            String title = mCursor.getString(COLUMN_INDEX_TITLE);
+            if (title == null || title.isEmpty() || title.equals("<Untitled>")) {
+                title = "New Note"; // 默认标题
+            }
+            mText.setText(title);
         }
     }
 

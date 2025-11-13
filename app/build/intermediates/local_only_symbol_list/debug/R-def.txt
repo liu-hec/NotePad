@@ -22,7 +22,6 @@ drawable note_item_background
 drawable popup_menu_background
 drawable search_background
 id actionbar_menu
-id btn_add_note
 id color_spinner
 id context_copy
 id context_delete

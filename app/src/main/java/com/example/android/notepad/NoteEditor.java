@@ -230,12 +230,12 @@ public class NoteEditor extends Activity {
          * the block will be momentary, but in a real app you should use
          * android.content.AsyncQueryHandler or android.os.AsyncTask.
          */
-        mCursor = managedQuery(
-            mUri,         // The URI that gets multiple notes from the provider.
-            PROJECTION,   // A projection that returns the note ID and note content for each note.
-            null,         // No "where" clause selection criteria.
-            null,         // No "where" clause selection values.
-            null          // Use the default sort order (modification date, descending)
+        mCursor = getContentResolver().query(
+                mUri,         // The URI that gets multiple notes from the provider.
+                PROJECTION,   // A projection that returns the note ID and note content for each note.
+                null,         // No "where" clause selection criteria.
+                null,         // No "where" clause selection values.
+                null          // Use the default sort order (modification date, descending)
         );
 
         // For a paste, initializes the data from clipboard.
@@ -312,22 +312,23 @@ public class NoteEditor extends Activity {
              * record.
              */
             mCursor.moveToFirst();
-
+           //TODO 根据mState 判断是 insert note还是edit note 这里统一为edtit note页面
             // Modifies the window title for the Activity according to the current Activity state.
-            if (mState == STATE_EDIT) {
-                // Set the title of the Activity to include the note title
-                int colTitleIndex = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_TITLE);
-                String title = mCursor.getString(colTitleIndex);
-                mCurrentTitle = title; // 保存当前标题
-                Resources res = getResources();
-                String text = String.format(res.getString(R.string.title_edit), title);
-                setTitle(text);
-            // Sets the title to "create" for inserts
-            } else if (mState == STATE_INSERT) {
-                mCurrentTitle = getString(R.string.title_create);
-                setTitle(mCurrentTitle);// 设置标题
+            // Requery in case something changed while paused
+
+            // 统一为编辑页面样式
+            int colTitleIndex = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_TITLE);
+            String title = mCursor.getString(colTitleIndex);
+
+            // 如果是新创建的笔记，标题为"New note"
+            if(mState == STATE_INSERT){
+                title = "New Note";
             }
 
+            mCurrentTitle = title;
+            Resources res = getResources();
+            String text = String.format(res.getString(R.string.title_edit), title);
+            setTitle(text);
             /*
              * onResume() may have been called after the Activity lost focus (was paused).
              * The user was either editing or creating a note when the Activity paused.
@@ -495,18 +496,13 @@ public class NoteEditor extends Activity {
         // Inflate menu from XML resource
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.editor_options_menu, menu);
-        // Only add extra menu items for a saved note
-        if (mState == STATE_EDIT) {
-            // Append to the
-            // menu items for any other activities that can do stuff with it
-            // as well.  This does a query on the system for any activities that
-            // implement the ALTERNATIVE_ACTION for our data, adding a menu item
-            // for each one that is found.
-            Intent intent = new Intent(null, mUri);
-            intent.addCategory(Intent.CATEGORY_ALTERNATIVE);
-            menu.addIntentOptions(Menu.CATEGORY_ALTERNATIVE, 0, 0,
-                    new ComponentName(this, NoteEditor.class), null, intent, 0, null);
-        }
+
+        // 统一为编辑页面样式，始终显示保存、撤销、更多选项
+        // 移除对mState的判断，统一显示所有菜单项
+        Intent intent = new Intent(null, mUri);
+        intent.addCategory(Intent.CATEGORY_ALTERNATIVE);
+        menu.addIntentOptions(Menu.CATEGORY_ALTERNATIVE, 0, 0,
+                new ComponentName(this, NoteEditor.class), null, intent, 0, null);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -533,12 +529,17 @@ public class NoteEditor extends Activity {
             String text = mText.getText().toString();
             updateNote(text, mCurrentTitle);
             finish();
-        } else if (itemId == R.id.menu_delete) {
-            deleteNote();
-            finish();
         } else if (itemId == R.id.menu_revert) {
             cancelNote();
         }
+        //仅编辑页面可以删除
+        if(mState == STATE_EDIT){
+             if (itemId == R.id.menu_delete) {
+                deleteNote();
+                finish();
+            }
+        }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -623,26 +624,6 @@ public class NoteEditor extends Activity {
 
         // If the action is to insert a new note, this creates an initial title for it.
         if (mState == STATE_INSERT) {
-
-            // If no title was provided as an argument, create one from the note text.
-            if (title == null) {
-  
-                // Get the note's length
-                int length = text.length();
-
-                // Sets the title by getting a substring of the text that is 31 characters long
-                // or the number of characters in the note plus one, whichever is smaller.
-                title = text.substring(0, Math.min(30, length));
-  
-                // If the resulting length is more than 30 characters, chops off any
-                // trailing spaces
-                if (length > 30) {
-                    int lastSpace = title.lastIndexOf(' ');
-                    if (lastSpace > 0) {
-                        title = title.substring(0, lastSpace);
-                    }
-                }
-            }
             // In the values map, sets the value of the title
             values.put(NotePad.Notes.COLUMN_NAME_TITLE, title);
             mCurrentTitle = title; // 更新当前标题
@@ -687,16 +668,15 @@ public class NoteEditor extends Activity {
      * newly created, or reverts to the original text of the note i
      */
     private final void cancelNote() {
-        // 保存当前内容而不是恢复到原始内容
-        saveNote();
-        
         // 如果是新创建的笔记且没有内容，则删除它
         if (mState == STATE_INSERT) {
             if (mText.getText().toString().isEmpty()) {
                 deleteNote();
             }
         }
-        
+
+        // 保存当前内容而不是恢复到原始内容
+        saveNote();
         setResult(RESULT_CANCELED);
         finish();
     }

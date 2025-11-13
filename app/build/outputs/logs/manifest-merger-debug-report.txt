@@ -2,6 +2,27 @@
 manifest
 ADDED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:22:1-132:12
 INJECTED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:22:1-132:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] D:\AndroidProjects\caches\8.13\transforms\ec71d9958b0c913eaa313b6aa44021fe\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.2.0] D:\AndroidProjects\caches\8.13\transforms\24439c7d93689094040ed52f6f3f0d6d\transformed\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.1.0] D:\AndroidProjects\caches\8.13\transforms\4640a4b6c30f8c32d48b50398b247c6f\transformed\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] D:\AndroidProjects\caches\8.13\transforms\eb0a2d3ea6454a391fe4e8c72f8a5bf5\transformed\appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] D:\AndroidProjects\caches\8.13\transforms\d0e21c681bcaeb2043b4b86ad21edbe6\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] D:\AndroidProjects\caches\8.13\transforms\2371764d7e0b0ea7a5812ed3a5375724\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] D:\AndroidProjects\caches\8.13\transforms\6587ce56319cc2e1b879278abeca1dbb\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] D:\AndroidProjects\caches\8.13\transforms\3d6fcbdb94f7214a09ed00ac2a2f3e76\transformed\activity-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] D:\AndroidProjects\caches\8.13\transforms\09de864d7947da68690a399f26e0f1b3\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] D:\AndroidProjects\caches\8.13\transforms\0624bfaf6c71f9401db161cfbfc0350f\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] D:\AndroidProjects\caches\8.13\transforms\9b60284c3f962726df72efba4193df71\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.3.2] D:\AndroidProjects\caches\8.13\transforms\2dc63f1c103a6b1963707004aab29c5c\transformed\core-1.3.2\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] D:\AndroidProjects\caches\8.13\transforms\6aab3304de7023b0f3cdb8771ee88217\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] D:\AndroidProjects\caches\8.13\transforms\f748c4704697100f064b3367cb617008\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] D:\AndroidProjects\caches\8.13\transforms\4a7d786ce84b39c6f5f80685a6e427e4\transformed\lifecycle-runtime-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] D:\AndroidProjects\caches\8.13\transforms\36f1709d870c9a6a4a101b79d2e416c7\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] D:\AndroidProjects\caches\8.13\transforms\8ca4175319db334277d3ffc1362d47b8\transformed\savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] D:\AndroidProjects\caches\8.13\transforms\274e338a9cb725a2c4356f1f8686e884\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] D:\AndroidProjects\caches\8.13\transforms\2bcf282898d6383f131e211a4cb35723\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] D:\AndroidProjects\caches\8.13\transforms\011904220890583fec91f08913f66d8a\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] D:\AndroidProjects\caches\8.13\transforms\8b13fb3253ec249742dc1468c9d0faad\transformed\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 	package
 		INJECTED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml
 	xmlns:android
@@ -10,6 +31,48 @@ uses-sdk
 ADDED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:24:5-44
 INJECTED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:24:5-44
 INJECTED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:24:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] D:\AndroidProjects\caches\8.13\transforms\ec71d9958b0c913eaa313b6aa44021fe\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] D:\AndroidProjects\caches\8.13\transforms\ec71d9958b0c913eaa313b6aa44021fe\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] D:\AndroidProjects\caches\8.13\transforms\24439c7d93689094040ed52f6f3f0d6d\transformed\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] D:\AndroidProjects\caches\8.13\transforms\24439c7d93689094040ed52f6f3f0d6d\transformed\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] D:\AndroidProjects\caches\8.13\transforms\4640a4b6c30f8c32d48b50398b247c6f\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] D:\AndroidProjects\caches\8.13\transforms\4640a4b6c30f8c32d48b50398b247c6f\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] D:\AndroidProjects\caches\8.13\transforms\eb0a2d3ea6454a391fe4e8c72f8a5bf5\transformed\appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] D:\AndroidProjects\caches\8.13\transforms\eb0a2d3ea6454a391fe4e8c72f8a5bf5\transformed\appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] D:\AndroidProjects\caches\8.13\transforms\d0e21c681bcaeb2043b4b86ad21edbe6\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] D:\AndroidProjects\caches\8.13\transforms\d0e21c681bcaeb2043b4b86ad21edbe6\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] D:\AndroidProjects\caches\8.13\transforms\2371764d7e0b0ea7a5812ed3a5375724\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] D:\AndroidProjects\caches\8.13\transforms\2371764d7e0b0ea7a5812ed3a5375724\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] D:\AndroidProjects\caches\8.13\transforms\6587ce56319cc2e1b879278abeca1dbb\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] D:\AndroidProjects\caches\8.13\transforms\6587ce56319cc2e1b879278abeca1dbb\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] D:\AndroidProjects\caches\8.13\transforms\3d6fcbdb94f7214a09ed00ac2a2f3e76\transformed\activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] D:\AndroidProjects\caches\8.13\transforms\3d6fcbdb94f7214a09ed00ac2a2f3e76\transformed\activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] D:\AndroidProjects\caches\8.13\transforms\09de864d7947da68690a399f26e0f1b3\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] D:\AndroidProjects\caches\8.13\transforms\09de864d7947da68690a399f26e0f1b3\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] D:\AndroidProjects\caches\8.13\transforms\0624bfaf6c71f9401db161cfbfc0350f\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] D:\AndroidProjects\caches\8.13\transforms\0624bfaf6c71f9401db161cfbfc0350f\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] D:\AndroidProjects\caches\8.13\transforms\9b60284c3f962726df72efba4193df71\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] D:\AndroidProjects\caches\8.13\transforms\9b60284c3f962726df72efba4193df71\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.3.2] D:\AndroidProjects\caches\8.13\transforms\2dc63f1c103a6b1963707004aab29c5c\transformed\core-1.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.2] D:\AndroidProjects\caches\8.13\transforms\2dc63f1c103a6b1963707004aab29c5c\transformed\core-1.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] D:\AndroidProjects\caches\8.13\transforms\6aab3304de7023b0f3cdb8771ee88217\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] D:\AndroidProjects\caches\8.13\transforms\6aab3304de7023b0f3cdb8771ee88217\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] D:\AndroidProjects\caches\8.13\transforms\f748c4704697100f064b3367cb617008\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] D:\AndroidProjects\caches\8.13\transforms\f748c4704697100f064b3367cb617008\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] D:\AndroidProjects\caches\8.13\transforms\4a7d786ce84b39c6f5f80685a6e427e4\transformed\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] D:\AndroidProjects\caches\8.13\transforms\4a7d786ce84b39c6f5f80685a6e427e4\transformed\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] D:\AndroidProjects\caches\8.13\transforms\36f1709d870c9a6a4a101b79d2e416c7\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] D:\AndroidProjects\caches\8.13\transforms\36f1709d870c9a6a4a101b79d2e416c7\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0] D:\AndroidProjects\caches\8.13\transforms\8ca4175319db334277d3ffc1362d47b8\transformed\savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] D:\AndroidProjects\caches\8.13\transforms\8ca4175319db334277d3ffc1362d47b8\transformed\savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] D:\AndroidProjects\caches\8.13\transforms\274e338a9cb725a2c4356f1f8686e884\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] D:\AndroidProjects\caches\8.13\transforms\274e338a9cb725a2c4356f1f8686e884\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] D:\AndroidProjects\caches\8.13\transforms\2bcf282898d6383f131e211a4cb35723\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] D:\AndroidProjects\caches\8.13\transforms\2bcf282898d6383f131e211a4cb35723\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] D:\AndroidProjects\caches\8.13\transforms\011904220890583fec91f08913f66d8a\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] D:\AndroidProjects\caches\8.13\transforms\011904220890583fec91f08913f66d8a\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] D:\AndroidProjects\caches\8.13\transforms\8b13fb3253ec249742dc1468c9d0faad\transformed\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] D:\AndroidProjects\caches\8.13\transforms\8b13fb3253ec249742dc1468c9d0faad\transformed\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
 	android:targetSdkVersion
 		INJECTED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
@@ -26,8 +89,16 @@ ADDED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\Andr
 application
 ADDED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:29:5-130:19
 INJECTED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:29:5-130:19
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] D:\AndroidProjects\caches\8.13\transforms\ec71d9958b0c913eaa313b6aa44021fe\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] D:\AndroidProjects\caches\8.13\transforms\ec71d9958b0c913eaa313b6aa44021fe\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.3.2] D:\AndroidProjects\caches\8.13\transforms\2dc63f1c103a6b1963707004aab29c5c\transformed\core-1.3.2\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.2] D:\AndroidProjects\caches\8.13\transforms\2dc63f1c103a6b1963707004aab29c5c\transformed\core-1.3.2\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] D:\AndroidProjects\caches\8.13\transforms\f748c4704697100f064b3367cb617008\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] D:\AndroidProjects\caches\8.13\transforms\f748c4704697100f064b3367cb617008\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 	android:extractNativeLibs
 		INJECTED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.3.2] D:\AndroidProjects\caches\8.13\transforms\2dc63f1c103a6b1963707004aab29c5c\transformed\core-1.3.2\AndroidManifest.xml:24:18-86
 	android:label
 		ADDED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:30:9-41
 	android:icon
