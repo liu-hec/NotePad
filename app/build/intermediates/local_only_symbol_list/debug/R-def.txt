@@ -1,6 +1,14 @@
 R_DEF: Internal format may change without notice
 local
+color accent_color
+color background_color
+color card_background
+color primary_color
+color primary_dark_color
+color text_primary
+color text_secondary
 drawable app_notes
+drawable editor_background
 drawable ic_menu_compose
 drawable ic_menu_delete
 drawable ic_menu_edit
@@ -9,6 +17,8 @@ drawable ic_menu_revert
 drawable ic_menu_save
 drawable ic_menu_search
 drawable live_folder_notes
+drawable note_item_background
+drawable popup_menu_background
 drawable search_background
 id actionbar_menu
 id color_spinner
@@ -58,3 +68,5 @@ string title_create
 string title_edit
 string title_edit_title
 string title_notes_list
+style NotePadTheme
+style PopupMenuStyle

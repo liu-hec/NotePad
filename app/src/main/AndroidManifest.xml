@@ -28,7 +28,7 @@
 
     <application android:icon="@drawable/app_notes"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.Holo.Light">
+        android:theme="@style/NotePadTheme">
         <provider android:name=".NotePadProvider"
             android:authorities="com.google.provider.NotePad"
             android:exported="false">
@@ -58,7 +58,7 @@
 
         <activity android:name=".NoteEditor"
             android:exported="true"
-            android:theme="@android:style/Theme.Holo.Light"
+            android:theme="@style/NotePadTheme"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="sensor">
             

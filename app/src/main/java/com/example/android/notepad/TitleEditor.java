@@ -22,6 +22,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 /**
@@ -82,7 +83,8 @@ public class TitleEditor extends Activity {
          * android.content.AsyncQueryHandler or android.os.AsyncTask.
          */
 
-        mCursor = managedQuery(
+        // Replaced deprecated managedQuery with getContentResolver().query()
+        mCursor = getContentResolver().query(
             mUri,        // The URI for the note that is to be retrieved.
             PROJECTION,  // The columns to retrieve
             null,        // No selection criteria are used, so no where columns are needed.
@@ -92,6 +94,15 @@ public class TitleEditor extends Activity {
 
         // Gets the View ID for the EditText box
         mText = (EditText) this.findViewById(R.id.title);
+        
+        // Gets the View ID for the OK button and sets click listener
+        Button okButton = (Button) findViewById(R.id.ok);
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickOk(v);
+            }
+        });
     }
 
     /**
@@ -106,11 +117,7 @@ public class TitleEditor extends Activity {
 
         // Verifies that the query made in onCreate() actually worked. If it worked, then the
         // Cursor object is not null. If it is *empty*, then mCursor.getCount() == 0.
-        if (mCursor != null) {
-
-            // The Cursor was just retrieved, so its index is set to one record *before* the first
-            // record retrieved. This moves it to the first record.
-            mCursor.moveToFirst();
+        if (mCursor != null && mCursor.moveToFirst()) {
 
             // Displays the current title text in the EditText object.
             mText.setText(mCursor.getString(COLUMN_INDEX_TITLE));
@@ -135,7 +142,7 @@ public class TitleEditor extends Activity {
         // Verifies that the query made in onCreate() actually worked. If it worked, then the
         // Cursor object is not null. If it is *empty*, then mCursor.getCount() == 0.
 
-        if (mCursor != null) {
+        if (mCursor != null && mCursor.moveToFirst()) {
 
             // Creates a values map for updating the provider.
             ContentValues values = new ContentValues();

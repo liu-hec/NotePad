@@ -1,4 +1,12 @@
+int color accent_color 0x7f070000
+int color background_color 0x7f070001
+int color card_background 0x7f070002
+int color primary_color 0x7f070003
+int color primary_dark_color 0x7f070004
+int color text_primary 0x7f070005
+int color text_secondary 0x7f070006
 int drawable app_notes 0x7f010000
+int drawable editor_background 0x7f01000a
 int drawable ic_menu_compose 0x7f010001
 int drawable ic_menu_delete 0x7f010002
 int drawable ic_menu_edit 0x7f010003
@@ -7,6 +15,8 @@ int drawable ic_menu_revert 0x7f010005
 int drawable ic_menu_save 0x7f010006
 int drawable ic_menu_search 0x7f010007
 int drawable live_folder_notes 0x7f010008
+int drawable note_item_background 0x7f01000b
+int drawable popup_menu_background 0x7f01000c
 int drawable search_background 0x7f010009
 int id actionbar_menu 0x7f020000
 int id color_spinner 0x7f020001
@@ -56,3 +66,5 @@ int string title_create 0x7f060011
 int string title_edit 0x7f060012
 int string title_edit_title 0x7f060013
 int string title_notes_list 0x7f060014
+int style NotePadTheme 0x7f080000
+int style PopupMenuStyle 0x7f080001

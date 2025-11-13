@@ -46,8 +46,8 @@
 38        android:label="@string/app_name"
 38-->C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:30:9-41
 39        android:testOnly="true"
-40        android:theme="@android:style/Theme.Holo.Light" >
-40-->C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:31:9-56
+40        android:theme="@style/NotePadTheme" >
+40-->C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:31:9-44
 41        <provider
 41-->C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:32:9-36:20
 42            android:name="com.example.android.notepad.NotePadProvider"
@@ -124,8 +124,8 @@
 77-->C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:60:13-36
 78            android:screenOrientation="sensor"
 78-->C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:63:13-47
-79            android:theme="@android:style/Theme.Holo.Light" >
-79-->C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:61:13-60
+79            android:theme="@style/NotePadTheme" >
+79-->C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:61:13-48
 80
 81            <!--
 82                 This filter says that we can view or edit the data of

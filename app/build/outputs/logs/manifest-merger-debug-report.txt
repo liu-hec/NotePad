@@ -33,7 +33,7 @@ INJECTED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\A
 	android:icon
 		ADDED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:29:18-52
 	android:theme
-		ADDED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:31:9-56
+		ADDED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:31:9-44
 provider#com.example.android.notepad.NotePadProvider
 ADDED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:32:9-36:20
 	android:authorities
@@ -101,7 +101,7 @@ ADDED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\Andr
 	android:configChanges
 		ADDED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:62:13-63
 	android:theme
-		ADDED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:61:13-60
+		ADDED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:61:13-48
 	android:name
 		ADDED from C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\AndroidManifest.xml:59:19-45
 intent-filter#action:name:android.intent.action.EDIT+action:name:android.intent.action.VIEW+action:name:com.android.notepad.action.EDIT_NOTE+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.item/vnd.google.note

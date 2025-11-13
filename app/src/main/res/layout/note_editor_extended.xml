@@ -3,13 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="16dp"
+    android:background="#F5F5F5">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:background="@drawable/editor_background"
+        android:padding="12dp">
 
         <TextView
             android:layout_width="36dp"
@@ -48,13 +51,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@android:color/transparent"
-        android:padding="5dp"
+        android:background="@drawable/editor_background"
+        android:padding="16dp"
         android:scrollbars="vertical"
         android:fadingEdge="vertical"
         android:gravity="top"
         android:textSize="22sp"
         android:capitalize="sentences"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="16dp" />
 
 </LinearLayout>

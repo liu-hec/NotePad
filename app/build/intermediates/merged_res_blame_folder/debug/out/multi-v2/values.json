@@ -1,6 +1,28 @@
 {
     "logs": [
         {
+            "outputFile": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-mergeDebugResources-2:\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\86152\\AndroidStudioProjects\\NotePad_origin\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,37,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,4,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,1725,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "endColumns": "-1,-1,-1,-1,-1,-1,-1,-1,54,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "endOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,1775,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,100,141,202,248,304,350,393,440,495,538,583,630,673,720,789,840,893,943,1002,1060",
+                        "endColumns": "44,40,60,45,55,45,42,46,54,42,44,46,42,46,68,50,52,49,58,57,50",
+                        "endOffsets": "95,136,197,243,299,345,388,435,490,533,578,625,668,715,784,835,888,938,997,1055,1106"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "C:\\Users\\86152\\.gradle\\daemon\\8.13\\com.example.android.notepad.app-mergeDebugResources-2:\\values\\values.xml",
             "map": [
                 {
@@ -26,20 +48,54 @@
             "outputFile": "com.example.android.notepad.app-mergeDebugResources-2:/values/values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\86152\\AndroidStudioProjects\\NotePad_origin\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\86152\\AndroidStudioProjects\\NotePad_origin\\app\\src\\main\\res\\values\\colors.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,37,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,4,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,1725,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "endColumns": "-1,-1,-1,-1,-1,-1,-1,-1,54,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "endOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,1775,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                        "startLines": "4,5,6,2,3,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "156,203,254,55,103,304,351",
+                        "endColumns": "46,50,49,47,52,46,48",
+                        "endOffsets": "198,249,299,98,151,346,395"
                     },
                     "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,102,153,203,251,304,351",
+                        "endColumns": "46,50,49,47,52,46,48",
+                        "endOffsets": "97,148,198,246,299,346,395"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\86152\\AndroidStudioProjects\\NotePad_origin\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "6,2",
+                        "startColumns": "4,4",
+                        "startOffsets": "243,55",
+                        "endLines": "8,4",
+                        "endColumns": "12,12",
+                        "endOffsets": "403,233"
+                    },
+                    "to": {
+                        "startLines": "30,33",
+                        "startColumns": "4,4",
+                        "startOffsets": "1456,1621",
+                        "endLines": "32,35",
+                        "endColumns": "12,12",
+                        "endOffsets": "1616,1799"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\86152\\AndroidStudioProjects\\NotePad_origin\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,100,141,202,248,304,350,393,440,495,538,583,630,673,720,789,840,893,943,1002,1060",
+                        "startOffsets": "400,445,486,547,593,649,695,738,785,840,883,928,975,1018,1065,1134,1185,1238,1288,1347,1405",
                         "endColumns": "44,40,60,45,55,45,42,46,54,42,44,46,42,46,68,50,52,49,58,57,50",
-                        "endOffsets": "95,136,197,243,299,345,388,435,490,533,578,625,668,715,784,835,888,938,997,1055,1106"
+                        "endOffsets": "440,481,542,588,644,690,733,780,835,878,923,970,1013,1060,1129,1180,1233,1283,1342,1400,1451"
                     }
                 }
             ]

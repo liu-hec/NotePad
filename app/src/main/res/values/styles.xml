@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="PopupMenuStyle" parent="@android:style/Widget.Holo.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/popup_menu_background</item>
+    </style>
+    
+    <style name="NotePadTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:listPopupWindowStyle">@style/PopupMenuStyle</item>
+    </style>
+</resources>

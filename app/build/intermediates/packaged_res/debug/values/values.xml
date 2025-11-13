@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="accent_color">#FF4081</color>
+    <color name="background_color">#F5F5F5</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="primary_color">#1976D2</color>
+    <color name="primary_dark_color">#1565C0</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
     <string name="app_name">NotePad</string>
     <string name="button_ok">OK</string>
     <string name="error_message">Error loading note</string>
@@ -21,4 +28,10 @@
     <string name="title_edit">Edit note: \"%1$s\"</string>
     <string name="title_edit_title">Select title</string>
     <string name="title_notes_list">Notes</string>
+    <style name="NotePadTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:listPopupWindowStyle">@style/PopupMenuStyle</item>
+    </style>
+    <style name="PopupMenuStyle" parent="@android:style/Widget.Holo.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/popup_menu_background</item>
+    </style>
 </resources>

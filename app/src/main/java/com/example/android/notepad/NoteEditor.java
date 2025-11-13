@@ -410,7 +410,14 @@ public class NoteEditor extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-
+        saveNote();
+    }
+    
+    /**
+     * 保存笔记内容的方法
+     * 这个方法可以在多种情况下调用以确保内容被保存
+     */
+    private void saveNote() {
         /*
          * Tests to see that the query operation didn't fail (see onCreate()). The Cursor object
          * will exist, even if no records were returned, unless the query failed because of some
@@ -680,19 +687,16 @@ public class NoteEditor extends Activity {
      * newly created, or reverts to the original text of the note i
      */
     private final void cancelNote() {
-        if (mCursor != null) {
-            if (mState == STATE_EDIT) {
-                // Put the original note text back into the database
-                mCursor.close();
-                mCursor = null;
-                ContentValues values = new ContentValues();
-                values.put(NotePad.Notes.COLUMN_NAME_NOTE, mOriginalContent);
-                getContentResolver().update(mUri, values, null, null);
-            } else if (mState == STATE_INSERT) {
-                // We inserted an empty note, make sure to delete it
+        // 保存当前内容而不是恢复到原始内容
+        saveNote();
+        
+        // 如果是新创建的笔记且没有内容，则删除它
+        if (mState == STATE_INSERT) {
+            if (mText.getText().toString().isEmpty()) {
                 deleteNote();
             }
         }
+        
         setResult(RESULT_CANCELED);
         finish();
     }
@@ -709,5 +713,12 @@ public class NoteEditor extends Activity {
         }
     }
 
-
+    /**
+     * 重写onBackPressed方法，确保在返回时也保存笔记
+     */
+    @Override
+    public void onBackPressed() {
+        saveNote();
+        super.onBackPressed();
+    }
 }
