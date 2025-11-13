@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light Theme -->
+    <style name="NotePadTheme.Light" parent="@android:style/Theme.Holo.Light">
+        <item name="android:listPopupWindowStyle">@style/PopupMenuStyle</item>
+        <item name="android:windowBackground">@color/background_color</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+    </style>
+    
+    <!-- Dark Theme -->
+    <style name="NotePadTheme.Dark" parent="@android:style/Theme.Holo">
+        <item name="android:listPopupWindowStyle">@style/PopupMenuStyle</item>
+        <item name="android:windowBackground">@color/dark_background</item>
+        <item name="android:textColorPrimary">@color/dark_text_primary</item>
+        <item name="android:textColorSecondary">@color/dark_text_secondary</item>
+    </style>
+</resources>
