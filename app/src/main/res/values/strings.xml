@@ -32,6 +32,7 @@
     <string name="menu_copy">Copy</string>
     <string name="menu_paste">Paste</string>
     <string name="menu_search">Search</string>
+    <string name="menu_theme">切换背景</string>
     <string name="button_ok">OK</string>
     <string name="nothing_to_save">There is nothing to save</string>
     <string name="live_folder_name">Live Notes</string>

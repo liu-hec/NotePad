@@ -16,6 +16,9 @@
 
 package com.example.android.notepad;
 
+import static com.example.android.notepad.ThemeManager.THEME_DARK;
+import static com.example.android.notepad.ThemeManager.THEME_LIGHT;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.ClipData;
@@ -44,6 +47,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 /**
  * This Activity handles "editing" a note, where editing is responding to
@@ -114,7 +119,7 @@ public class NoteEditor extends Activity {
             mRect = new Rect();
             mPaint = new Paint();
             mPaint.setStyle(Paint.Style.STROKE);
-            mPaint.setColor(0x800000FF);
+            mPaint.setColor(0x80FFFFFF); // 使用白色线条
         }
 
         /**
@@ -158,6 +163,9 @@ public class NoteEditor extends Activity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // 应用主题
+        ThemeManager.applyTheme(this);
+        
         super.onCreate(savedInstanceState);
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {
@@ -266,7 +274,22 @@ public class NoteEditor extends Activity {
             mOriginalContent = savedInstanceState.getString(ORIGINAL_CONTENT);
         }
     }
-
+    
+    private void applyTheme() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        int theme = prefs.getInt("theme", THEME_LIGHT); // 默认使用浅色主题
+        
+        switch (theme) {
+            case THEME_DARK:
+                setTheme(R.style.NotePadTheme_Dark);
+                break;
+            case THEME_LIGHT:
+            default:
+                setTheme(R.style.NotePadTheme_Light);
+                break;
+        }
+    }
+    
     private void setupSpinners() {
         // Setup type spinner
         ArrayAdapter<String> typeAdapter = new ArrayAdapter<>(this,

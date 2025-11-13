@@ -44,7 +44,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:gravity="bottom"
             android:singleLine="true"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary" />
 
         <TextView
             android:id="@+id/text2"
@@ -54,7 +55,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:gravity="top"
             android:singleLine="true"
-            android:textColor="#666666" />
+            android:textColor="?android:attr/textColorSecondary" />
 
     </LinearLayout>
 

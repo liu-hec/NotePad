@@ -103,6 +103,9 @@ public class NotesList extends ListActivity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // 应用主题
+        ThemeManager.applyTheme(this);
+        
         super.onCreate(savedInstanceState);
 
         // The user does not need to hold down the key to use menu shortcuts.
@@ -225,7 +228,7 @@ public class NotesList extends ListActivity {
         // Sets the ListView's adapter to be the cursor adapter that was just created.
         setListAdapter(adapter);
     }
-
+    
     /**
      * Format date for display in China timezone
      */
@@ -404,11 +407,21 @@ public class NotesList extends ListActivity {
              */
             startActivity(new Intent(Intent.ACTION_PASTE, getIntent().getData()));
             return true;
+        } else if (itemId == R.id.menu_theme_white) {
+            // 设置浅色主题
+            ThemeManager.setTheme(this, ThemeManager.THEME_LIGHT);
+            recreate(); // 重新创建Activity以应用新主题
+            return true;
+        } else if (itemId == R.id.menu_theme_gray) {
+            // 设置深色主题
+            ThemeManager.setTheme(this, ThemeManager.THEME_DARK);
+            recreate(); // 重新创建Activity以应用新主题
+            return true;
         } else {
             return super.onOptionsItemSelected(item);
         }
     }
-
+    
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);

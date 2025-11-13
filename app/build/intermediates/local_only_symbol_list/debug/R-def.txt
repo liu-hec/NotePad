@@ -3,13 +3,16 @@ local
 color accent_color
 color background_color
 color card_background
+color dark_background
+color dark_card_background
+color dark_text_primary
+color dark_text_secondary
 color primary_color
 color primary_dark_color
 color text_primary
 color text_secondary
 drawable app_notes
 drawable editor_background
-drawable ic_add_button
 drawable ic_menu_compose
 drawable ic_menu_delete
 drawable ic_menu_edit
@@ -17,8 +20,10 @@ drawable ic_menu_hamburger
 drawable ic_menu_revert
 drawable ic_menu_save
 drawable ic_menu_search
+drawable ic_menu_theme
 drawable live_folder_notes
 drawable note_item_background
+drawable note_item_background_dark
 drawable popup_menu_background
 drawable search_background
 id actionbar_menu
@@ -34,6 +39,9 @@ id menu_paste
 id menu_revert
 id menu_save
 id menu_search
+id menu_theme
+id menu_theme_gray
+id menu_theme_white
 id note
 id ok
 id text2
@@ -46,8 +54,6 @@ layout title_editor
 menu editor_options_menu
 menu list_context_menu
 menu list_options_menu_extended
-mipmap ic_menu_search
-mipmap ic_menu_search_round
 string app_name
 string button_ok
 string error_message
@@ -62,6 +68,7 @@ string menu_paste
 string menu_revert
 string menu_save
 string menu_search
+string menu_theme
 string nothing_to_save
 string resolve_edit
 string resolve_title
@@ -69,5 +76,6 @@ string title_create
 string title_edit
 string title_edit_title
 string title_notes_list
-style NotePadTheme
+style NotePadTheme.Dark
+style NotePadTheme.Light
 style PopupMenuStyle

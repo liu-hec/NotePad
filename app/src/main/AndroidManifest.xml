@@ -27,8 +27,7 @@
     <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY"/>
 
     <application android:icon="@drawable/app_notes"
-        android:label="@string/app_name"
-        android:theme="@style/NotePadTheme">
+        android:label="@string/app_name">
         <provider android:name=".NotePadProvider"
             android:authorities="com.google.provider.NotePad"
             android:exported="false">
@@ -58,7 +57,6 @@
 
         <activity android:name=".NoteEditor"
             android:exported="true"
-            android:theme="@style/NotePadTheme"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="sensor">
             

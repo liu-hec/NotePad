@@ -3,6 +3,10 @@
     <color name="accent_color">#FF4081</color>
     <color name="background_color">#F5F5F5</color>
     <color name="card_background">#FFFFFF</color>
+    <color name="dark_background">#121212</color>
+    <color name="dark_card_background">#424242</color>
+    <color name="dark_text_primary">#000000</color>
+    <color name="dark_text_secondary">#B0BEC5</color>
     <color name="primary_color">#1976D2</color>
     <color name="primary_dark_color">#1565C0</color>
     <color name="text_primary">#212121</color>
@@ -21,6 +25,7 @@
     <string name="menu_revert">Revert</string>
     <string name="menu_save">Save</string>
     <string name="menu_search">Search</string>
+    <string name="menu_theme">切换背景</string>
     <string name="nothing_to_save">There is nothing to save</string>
     <string name="resolve_edit">Edit note</string>
     <string name="resolve_title">Edit title</string>
@@ -28,8 +33,17 @@
     <string name="title_edit">Edit note: \"%1$s\"</string>
     <string name="title_edit_title">Select title</string>
     <string name="title_notes_list">Notes</string>
-    <style name="NotePadTheme" parent="@android:style/Theme.Holo.Light">
+    <style name="NotePadTheme.Dark" parent="@android:style/Theme.Holo">
         <item name="android:listPopupWindowStyle">@style/PopupMenuStyle</item>
+        <item name="android:windowBackground">@color/dark_background</item>
+        <item name="android:textColorPrimary">@color/dark_text_primary</item>
+        <item name="android:textColorSecondary">@color/dark_text_secondary</item>
+    </style>
+    <style name="NotePadTheme.Light" parent="@android:style/Theme.Holo.Light">
+        <item name="android:listPopupWindowStyle">@style/PopupMenuStyle</item>
+        <item name="android:windowBackground">@color/background_color</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
     </style>
     <style name="PopupMenuStyle" parent="@android:style/Widget.Holo.ListPopupWindow">
         <item name="android:popupBackground">@drawable/popup_menu_background</item>

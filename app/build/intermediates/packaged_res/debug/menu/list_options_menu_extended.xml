@@ -17,5 +17,18 @@
           android:icon="@drawable/ic_menu_search"
           android:showAsAction="ifRoom|collapseActionView"
           android:actionViewClass="android.widget.SearchView" />
+          
+    <!-- 背景颜色切换菜单 -->
+    <item android:id="@+id/menu_theme"
+          android:title="切换背景"
+          android:icon="@drawable/ic_menu_theme"
+          android:showAsAction="ifRoom" >
+        <menu>
+            <item android:id="@+id/menu_theme_white"
+                  android:title="白色背景" />
+            <item android:id="@+id/menu_theme_gray"
+                  android:title="灰色背景" />
+        </menu>
+    </item>
 
 </menu>

@@ -6,11 +6,63 @@
                 {
                     "source": "D:\\AndroidProjects\\caches\\8.13\\transforms\\24439c7d93689094040ed52f6f3f0d6d\\transformed\\appcompat-1.2.0\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "211,281,365,449,545,647,749,843",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "276,360,444,540,642,744,838,927"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\86152\\AndroidStudioProjects\\NotePad_origin\\app\\src\\main\\res\\values-night\\colors.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1",
+                        "startColumns": "-1,-1,-1",
+                        "startOffsets": "-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,105,157",
+                        "endColumns": "49,51,53",
+                        "endOffsets": "100,152,206"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-mergeDebugResources-2:\\values-night-v8\\values-night-v8.xml",
+            "map": [
+                {
+                    "source": "D:\\AndroidProjects\\caches\\8.13\\transforms\\24439c7d93689094040ed52f6f3f0d6d\\transformed\\appcompat-1.2.0\\res\\values-night-v8\\values-night-v8.xml",
+                    "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
                         "startOffsets": "55,125,209,293,389,491,593,687",
                         "endColumns": "69,83,83,95,101,101,93,88",
                         "endOffsets": "120,204,288,384,486,588,682,771"
+                    },
+                    "to": {
+                        "startLines": "6,7,8,9,10,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "323,393,477,561,657,759,861,955",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "388,472,556,652,754,856,950,1039"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\86152\\AndroidStudioProjects\\NotePad_origin\\app\\src\\main\\res\\values-night\\colors.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,121,191,255",
+                        "endColumns": "65,69,63,67",
+                        "endOffsets": "116,186,250,318"
                     }
                 }
             ]

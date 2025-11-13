@@ -37,8 +37,7 @@
         android:extractNativeLibs="true"
         android:icon="@drawable/app_notes"
         android:label="@string/app_name"
-        android:testOnly="true"
-        android:theme="@style/NotePadTheme" >
+        android:testOnly="true" >
         <provider
             android:name="com.example.android.notepad.NotePadProvider"
             android:authorities="com.google.provider.NotePad"
@@ -76,8 +75,7 @@
             android:name="com.example.android.notepad.NoteEditor"
             android:configChanges="keyboardHidden|orientation"
             android:exported="true"
-            android:screenOrientation="sensor"
-            android:theme="@style/NotePadTheme" >
+            android:screenOrientation="sensor" >
 
             <!--
                  This filter says that we can view or edit the data of

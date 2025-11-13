@@ -620,6 +620,10 @@ color bright_foreground_material_light
 color button_material_dark
 color button_material_light
 color card_background
+color dark_background
+color dark_card_background
+color dark_text_primary
+color dark_text_secondary
 color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
@@ -883,7 +887,6 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable editor_background
-drawable ic_add_button
 drawable ic_menu_compose
 drawable ic_menu_delete
 drawable ic_menu_edit
@@ -891,8 +894,10 @@ drawable ic_menu_hamburger
 drawable ic_menu_revert
 drawable ic_menu_save
 drawable ic_menu_search
+drawable ic_menu_theme
 drawable live_folder_notes
 drawable note_item_background
+drawable note_item_background_dark
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -1101,6 +1106,9 @@ id menu_paste
 id menu_revert
 id menu_save
 id menu_search
+id menu_theme
+id menu_theme_gray
+id menu_theme_white
 id message
 id middle
 id motion_base
@@ -1280,8 +1288,6 @@ layout title_editor
 menu editor_options_menu
 menu list_context_menu
 menu list_options_menu_extended
-mipmap ic_menu_search
-mipmap ic_menu_search_round
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -1323,6 +1329,7 @@ string menu_paste
 string menu_revert
 string menu_save
 string menu_search
+string menu_theme
 string nothing_to_save
 string resolve_edit
 string resolve_title
@@ -1493,7 +1500,8 @@ style Base_Widget_AppCompat_TextView
 style Base_Widget_AppCompat_TextView_SpinnerItem
 style Base_Widget_AppCompat_Toolbar
 style Base_Widget_AppCompat_Toolbar_Button_Navigation
-style NotePadTheme
+style NotePadTheme_Dark
+style NotePadTheme_Light
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_ThemeOverlay_AppCompat
