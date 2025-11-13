@@ -7,6 +7,7 @@ int color text_primary 0x7f070005
 int color text_secondary 0x7f070006
 int drawable app_notes 0x7f010000
 int drawable editor_background 0x7f01000a
+int drawable ic_add_button 0x7f01000d
 int drawable ic_menu_compose 0x7f010001
 int drawable ic_menu_delete 0x7f010002
 int drawable ic_menu_edit 0x7f010003
@@ -19,6 +20,7 @@ int drawable note_item_background 0x7f01000b
 int drawable popup_menu_background 0x7f01000c
 int drawable search_background 0x7f010009
 int id actionbar_menu 0x7f020000
+int id btn_add_note 0x7f020012
 int id color_spinner 0x7f020001
 int id context_copy 0x7f020002
 int id context_delete 0x7f020003

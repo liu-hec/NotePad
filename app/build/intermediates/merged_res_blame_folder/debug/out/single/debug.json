@@ -92,6 +92,10 @@
         "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\mipmap-xxhdpi\\ic_menu_search_round.webp"
     },
     {
+        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_ic_add_button.xml.flat",
+        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\ic_add_button.xml"
+    },
+    {
         "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable-hdpi_ic_menu_revert.png.flat",
         "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable-hdpi\\ic_menu_revert.png"
     },
@@ -136,8 +140,8 @@
         "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\mipmap-anydpi-v26\\ic_menu_search_round.xml"
     },
     {
-        "merged": "com.example.android.notepad.app-merged_res-4:/layout_title_editor.xml.flat",
-        "source": "com.example.android.notepad.app-main-6:/layout/title_editor.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/layout_noteslist_item.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/layout/noteslist_item.xml"
     },
     {
         "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\mipmap-xhdpi_ic_menu_search.webp.flat",

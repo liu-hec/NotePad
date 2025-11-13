@@ -129,6 +129,16 @@ public class NotesList extends ListActivity {
                     }
                 });
             }
+// 查找添加笔记按钮并设置点击事件
+            ImageButton btnAddNote = (ImageButton) customView.findViewById(R.id.btn_add_note);
+            if (btnAddNote != null) {
+                btnAddNote.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(Intent.ACTION_INSERT, getIntent().getData()));
+                    }
+                });
+            }
         }
 
         /* If no data is given in the Intent that started this Activity, then this Activity
@@ -168,7 +178,7 @@ public class NotesList extends ListActivity {
                 null,
                 null,
                 NotePad.Notes.DEFAULT_SORT_ORDER
-        );// managedQuery方法而导致的闪退问题 导致搜索框 没有进行搜索进入编辑页面退出后直接闪退
+        );//  TODO managedQuery方法而导致的闪退问题 导致搜索框 没有进行搜索进入编辑页面退出后直接闪退
         //
 
         /*

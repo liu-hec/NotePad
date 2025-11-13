@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:gravity="center_vertical"
-    android:background="#1976D2">
+    android:gravity="center_vertical">
 
     <!-- 添加汉堡菜单按钮 -->
     <ImageButton
@@ -16,7 +15,17 @@
         android:layout_marginLeft="8dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="Categories" />
-        
+
+    <!-- 右侧加号按钮 -->
+
+    <ImageButton
+        android:id="@+id/btn_add_note"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/ic_add_button"
+        android:contentDescription="New Note" />
+
     <View
         android:layout_width="0dp"
         android:layout_height="1dp"

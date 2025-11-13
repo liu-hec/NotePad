@@ -9,6 +9,7 @@ color text_primary
 color text_secondary
 drawable app_notes
 drawable editor_background
+drawable ic_add_button
 drawable ic_menu_compose
 drawable ic_menu_delete
 drawable ic_menu_edit
@@ -21,6 +22,7 @@ drawable note_item_background
 drawable popup_menu_background
 drawable search_background
 id actionbar_menu
+id btn_add_note
 id color_spinner
 id context_copy
 id context_delete
