@@ -18,7 +18,8 @@ package com.example.android.notepad;
 
 import static com.example.android.notepad.ThemeManager.THEME_DARK;
 import static com.example.android.notepad.ThemeManager.THEME_LIGHT;
-
+import android.graphics.Color;
+import android.util.TypedValue;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.ClipData;
@@ -37,6 +38,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -120,6 +122,9 @@ public class NoteEditor extends Activity {
             mPaint = new Paint();
             mPaint.setStyle(Paint.Style.STROKE);
             mPaint.setColor(getLineColor(context)); // 根据主题设置线条颜色
+
+            // 根据主题设置字体颜色
+            setTextColor(getTextColor(context));
         }
         
         /**
@@ -130,14 +135,33 @@ public class NoteEditor extends Activity {
         private int getLineColor(Context context) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             int theme = prefs.getInt("theme", THEME_LIGHT);
-            
-            // 深色主题使用较亮的线条，浅色主题使用较亮的线条
+
+
+            // 深色主题使用较亮的线条，浅色主题使用较深的线条
             if (theme == THEME_DARK) {
-                return 0x80FFFFFF; // 深色主题使用白色线条
+                return 0xCCFFFFFF; // 深色主题使用更亮的白色线条（80%不透明度）
             } else {
-                return 0x80FFFFFF; // 浅色主题使用白色线条
+                return 0xCC000000; // 浅色主题使用更深的黑色线条（80%不透明度）
             }
         }
+
+        /**
+         * 根据当前主题获取字体颜色
+         * @param context 上下文
+         * @return 字体颜色
+         */
+        private int getTextColor(Context context) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            int theme = prefs.getInt("theme", THEME_LIGHT);
+
+            // 深色主题使用白色字体，浅色主题使用黑色字体
+            if (theme == THEME_DARK) {
+                return 0xFFFFFFFF; // 深色主题使用白色字体
+            } else {
+                return 0xFF000000; // 浅色主题使用黑色字体
+            }
+        }
+
 
         /**
          * This is called to draw the LinedEditText object
@@ -173,6 +197,8 @@ public class NoteEditor extends Activity {
             super.onDraw(canvas);
         }
     }
+//
+
 
     /**
      * This method is called by Android when the Activity is first started. From the incoming
@@ -186,8 +212,24 @@ public class NoteEditor extends Activity {
         super.onCreate(savedInstanceState);
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {
-            actionBar.setDisplayShowTitleEnabled(true);// 显示标题
+            actionBar.setDisplayShowTitleEnabled(false);// 显示标题 原生的无法通过直接代码修改
             actionBar.setDisplayShowHomeEnabled(false);
+            actionBar.setDisplayShowCustomEnabled(true); // 启用自定义标题视图
+
+            // 1. 创建自定义标题TextView
+            TextView titleView = new TextView(this);
+            titleView.setId(R.id.actionbar_title); // 给视图设ID，方便后续更新
+            titleView.setTextColor(Color.GRAY); // 核心：设置标题为灰色
+            titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18); // 匹配默认标题字体大小
+            titleView.setGravity(Gravity.CENTER_VERTICAL); // 与默认标题对齐方式一致
+
+            // 2. 设置自定义视图的布局参数（适配ActionBar高度）
+            ActionBar.LayoutParams params = new ActionBar.LayoutParams(
+                    ActionBar.LayoutParams.WRAP_CONTENT,
+                    ActionBar.LayoutParams.MATCH_PARENT
+            );
+            params.setMargins(20, 0, 0, 0); // 可选：添加左边距，模拟默认标题缩进
+            actionBar.setCustomView(titleView, params);
         }
         /*
          * Creates an Intent to use when the Activity object's result is sent back to the
@@ -368,7 +410,13 @@ public class NoteEditor extends Activity {
             mCurrentTitle = title;
             Resources res = getResources();
             String text = String.format(res.getString(R.string.title_edit), title);
-            setTitle(text);
+
+            // 关键：更新自定义标题视图的文本（颜色仍为灰色）
+            ActionBar actionBar = getActionBar();
+            if (actionBar != null && actionBar.getCustomView() instanceof TextView) {
+                TextView titleView = (TextView) actionBar.getCustomView();
+                titleView.setText(text); // 只更文本，不改变颜色
+            }
             /*
              * onResume() may have been called after the Activity lost focus (was paused).
              * The user was either editing or creating a note when the Activity paused.

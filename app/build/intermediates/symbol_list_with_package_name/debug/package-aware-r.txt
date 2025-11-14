@@ -897,7 +897,6 @@ drawable ic_menu_search
 drawable ic_menu_theme
 drawable live_folder_notes
 drawable note_item_background
-drawable note_item_background_dark
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -979,6 +978,7 @@ id action_mode_bar_stub
 id action_mode_close_button
 id action_text
 id actionbar_menu
+id actionbar_title
 id actions
 id activity_chooser_view_content
 id add
@@ -1284,6 +1284,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout title
 layout title_editor
 menu editor_options_menu
 menu list_context_menu

@@ -19,7 +19,7 @@
             android:layout_weight="1"
             android:text="@string/category_label"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="?android:attr/textColorPrimary" />  
+            android:textColor="#A9A9A9" />
 
         <Spinner
             android:id="@+id/type_spinner"
@@ -35,7 +35,7 @@
             android:text="@string/color_label"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_marginStart="10dp"
-            android:textColor="?android:attr/textColorPrimary" />  
+            android:textColor="#A9A9A9" />
 
         <Spinner
             android:id="@+id/color_spinner"

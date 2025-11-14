@@ -23,10 +23,10 @@ drawable ic_menu_search
 drawable ic_menu_theme
 drawable live_folder_notes
 drawable note_item_background
-drawable note_item_background_dark
 drawable popup_menu_background
 drawable search_background
 id actionbar_menu
+id actionbar_title
 id color_spinner
 id context_copy
 id context_delete
@@ -50,6 +50,7 @@ id type_spinner
 layout actionbar_custom_view
 layout note_editor_extended
 layout noteslist_item
+layout title
 layout title_editor
 menu editor_options_menu
 menu list_context_menu
