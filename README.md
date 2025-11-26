@@ -718,10 +718,13 @@ public LinedEditText(Context context, AttributeSet attrs) {
 }
 ```
 
+默认情况
+<img width="566" height="444" alt="image" src="https://github.com/user-attachments/assets/f085fe0f-9afa-4be4-bbbb-537e586f90b8" />
 
-<img width="518" height="357" alt="image" src="https://github.com/user-attachments/assets/9a301cf6-eba4-4f33-9474-741d22883446" />
+
 黑色模式
-<img width="553" height="579" alt="image" src="https://github.com/user-attachments/assets/09610735-d528-41bb-80da-77d2e25ad44a" />
+
+<img width="507" height="418" alt="image" src="https://github.com/user-attachments/assets/b5dd513c-0c39-43e5-9204-1412974b1049" />
 
 
 
