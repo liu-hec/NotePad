@@ -600,6 +600,7 @@ private void setupSpinners() {
 
 #### 彩色笔记
 
+```
 提供6种预设背景色
 
 对于NoteList类，我们提供多个浅色的颜色供使用者选择，插入note时默认没有颜色，为白色。当进入note的编辑页面时，可以自主选择需要的颜色。
@@ -635,19 +636,19 @@ private void setupSpinners() {
 同上，点击保存或者回退到主界面，触发保存note方法saveNote，进行修改操作。
 
 
+```
 
-
-
+```
 
 截图测试颜色情况：
 
-<img width="577" height="472" alt="image" src="https://github.com/user-attachments/assets/1e7a08ee-1ce8-4cce-a338-073bcec03d0e" />
+  <img width="577" height="472" alt="image" src="https://github.com/user-attachments/assets/1e7a08ee-1ce8-4cce-a338-073bcec03d0e" /> 
 修改note-1 为粉色
 
-<img width="598" height="124" alt="image" src="https://github.com/user-attachments/assets/11c45013-6980-4f15-a16c-abbe570d693a" />
+  <img width="598" height="124" alt="image" src="https://github.com/user-attachments/assets/11c45013-6980-4f15-a16c-abbe570d693a" />
 
 
-
+```
 
 
 
@@ -709,11 +710,11 @@ addButton.setOnClickListener(v -> {
 
 
 点击进入编辑页面
-
+```
 
 <img width="518" height="874" alt="image" src="https://github.com/user-attachments/assets/231c8830-97de-4d5e-be46-d80e83a38780" />
 
-
+```
 
 
 #### 输入美化
@@ -735,7 +736,7 @@ public LinedEditText(Context context, AttributeSet attrs) {
 
 
 
-
+```
 默认情况
 
 
@@ -744,9 +745,10 @@ public LinedEditText(Context context, AttributeSet attrs) {
 
 黑色模式
 
- ![image](https://github.com/user-attachments/assets/f085fe0f-9afa-4be4-bbbb-537e586f90b8 =566x444) 
+<img width="524" height="521" alt="image" src="https://github.com/user-attachments/assets/84bc4937-ada8-472b-9caf-04633a5391c7" />
 
 
+```
 
 
 
