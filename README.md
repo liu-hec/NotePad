@@ -1,4 +1,4 @@
-# 记事本应用
+## 记事本应用
 
 基于谷歌官方NotePad示例构建的高级Android记事本应用程序。该应用程序提供了完整的笔记功能，包括分类、主题、搜索功能和可自定义的笔记外观。
 
@@ -689,12 +689,14 @@ private void setupSpinners() {
 
 ListView是列表主界面，下面单独的圆圈图标
 
+```
 
 
-<img width="553" height="1041" alt="image" src="https://github.com/user-attachments/assets/abf81dc6-5910-48f4-9a62-a7a893e50e16" />
+  <img width="553" height="1041" alt="image" src="https://github.com/user-attachments/assets/abf81dc6-5910-48f4-9a62-a7a893e50e16" />
 
 
 
+```
 
 最后，将其创建监听方法，点击进入编辑页面即可。
 
@@ -706,7 +708,6 @@ addButton.setOnClickListener(v -> {
     startActivity(intent);
 });
 ```
-
 
 
 点击进入编辑页面
@@ -895,6 +896,8 @@ addButton.setImageDrawable(AppCompatResources.getDrawable(this, drawableId));
 ```
 
 
+
+  <img width="560" height="305" alt="image" src="https://github.com/user-attachments/assets/e0307b55-34f1-4e1f-9fae-7e29b877aeab" />
 
 
 
