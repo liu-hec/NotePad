@@ -273,6 +273,7 @@ getContentResolver().update(
 ```
 
 退到主界面 我们可以发现
+<img width="536" height="114" alt="image" src="https://github.com/user-attachments/assets/3fae8ecc-ff15-4ed2-9915-3c9966b6a8fb" />
 
 
 
