@@ -47,7 +47,8 @@ NoteList通过Resolver来调用Provider的方法和数据库交互，并通过 S
 
 其中，getIntent().getData()使用 intent 中传递的 uri，Provider动态接收uri。
 
-截图1
+<img width="568" height="509" alt="image" src="https://github.com/user-attachments/assets/a73178f3-4de3-447b-891c-d11860e5e980" />
+
 
 
 
@@ -106,7 +107,13 @@ NoteList通过Resolver来调用Provider的方法和数据库交互，并通过 S
     }    
 ```
 
-截图2
+修改前的内容
+<img width="534" height="620" alt="image" src="https://github.com/user-attachments/assets/b236c120-dce8-4009-a4b3-ec5d0267193f" />
+
+修改后
+<img width="542" height="484" alt="image" src="https://github.com/user-attachments/assets/105c1cd9-57c9-4ca2-94b4-4d9fb42a1ac1" />
+<img width="286" height="71" alt="image" src="https://github.com/user-attachments/assets/744944fd-ccd0-4cd6-9301-4650fb2d4f82" />
+同时时间紧随修改。
 
 #### 新增note
 
@@ -158,8 +165,9 @@ long rowId = db.insert(
 
 这里插入的note内容为null,因此如果你创建note但是没有输入内容（无法触发editor动作）不会创建新的note.即有数据输入才创建新的note，避免存储空间浪费
 
-截图3
+<img width="548" height="120" alt="image" src="https://github.com/user-attachments/assets/244b2ed2-e965-4e9a-811b-c283b7cf86a0" />
 
+点击新增note 如果有内容即可保存note.
 
 
 #### 删除note
@@ -205,9 +213,10 @@ long rowId = db.insert(
     }
 ```
 
-
-
-截图和结果截图‘
+<img width="576" height="424" alt="image" src="https://github.com/user-attachments/assets/593be6e5-de6e-4511-ba90-c43c220162cf" />
+长按note 弹出选择 选择delete
+<img width="572" height="403" alt="image" src="https://github.com/user-attachments/assets/5fc40e9c-47b2-4d09-b780-38b0f680bed6" />
+可以发现New Note被删除。
 
 
 
