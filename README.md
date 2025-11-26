@@ -588,15 +588,14 @@ private void setupSpinners() {
                 );
 ```
 
-
-
-
-
 修改note-1 类别为tasks
 <img width="589" height="612" alt="image" src="https://github.com/user-attachments/assets/1a5be9cf-a053-477e-9fa0-2a73c5754089" />
 
 
 缺点是 主界面查询对应的分类，但是无法得知现在的分类情况。
+
+
+
 
 
 
