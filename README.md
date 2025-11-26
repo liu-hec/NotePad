@@ -245,7 +245,6 @@ ActionBar actionBar = getActionBar();
         }
 ```
 
-截图
 
 在自定义的修改title的组件，我们点击ok后，调用TitleEditor的方法
 
@@ -273,13 +272,7 @@ getContentResolver().update(
 );
 ```
 
-截图
-
-
-
-
-
-
+退到主界面 我们可以发现
 
 
 
