@@ -588,16 +588,12 @@ private void setupSpinners() {
                     null     // No where columns are used, so no where arguments are necessary.
                 );
 ```
+修改为tasks
+<img width="532" height="558" alt="image" src="https://github.com/user-attachments/assets/32c4ee5d-267e-45c7-b729-913c23dd9de1" />
 
-修改note-1 类别为tasks
-<img width="589" height="612" alt="image" src="https://github.com/user-attachments/assets/1a5be9cf-a053-477e-9fa0-2a73c5754089" />
+成功查询
 
-
-缺点是 主界面查询对应的分类，但是无法得知现在的分类情况。
-
-
-
-
+<img width="551" height="179" alt="image" src="https://github.com/user-attachments/assets/9d859b1a-046f-40be-91b2-22e75ee72d8e" />
 
 
 #### 彩色笔记
