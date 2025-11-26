@@ -19,6 +19,7 @@ package com.example.android.notepad;
 import static com.example.android.notepad.ThemeManager.THEME_DARK;
 import static com.example.android.notepad.ThemeManager.THEME_LIGHT;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.util.TypedValue;
 import android.app.ActionBar;
 import android.app.Activity;
@@ -43,10 +44,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.content.SharedPreferences;
@@ -96,7 +99,6 @@ public class NoteEditor extends Activity {
     private Spinner mColorSpinner;
     private String mOriginalContent;
     private String mCurrentTitle; // 新增：用于存储当前标题
-    
     // Predefined categories and colors
     private static final String[] CATEGORIES = {"All", "Personal", "Work", "Ideas", "Tasks", "Other"};
     private static final String[] COLORS = {
@@ -123,10 +125,8 @@ public class NoteEditor extends Activity {
             mPaint.setStyle(Paint.Style.STROKE);
             mPaint.setColor(getLineColor(context)); // 根据主题设置线条颜色
 
-            // 根据主题设置字体颜色
-            setTextColor(getTextColor(context));
         }
-        
+
         /**
          * 根据当前主题获取行线颜色
          * @param context 上下文
@@ -142,23 +142,6 @@ public class NoteEditor extends Activity {
                 return 0xCCFFFFFF; // 深色主题使用更亮的白色线条（80%不透明度）
             } else {
                 return 0xCC000000; // 浅色主题使用更深的黑色线条（80%不透明度）
-            }
-        }
-
-        /**
-         * 根据当前主题获取字体颜色
-         * @param context 上下文
-         * @return 字体颜色
-         */
-        private int getTextColor(Context context) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            int theme = prefs.getInt("theme", THEME_LIGHT);
-
-            // 深色主题使用白色字体，浅色主题使用黑色字体
-            if (theme == THEME_DARK) {
-                return 0xFFFFFFFF; // 深色主题使用白色字体
-            } else {
-                return 0xFF000000; // 浅色主题使用黑色字体
             }
         }
 
@@ -208,7 +191,7 @@ public class NoteEditor extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         // 应用主题
         ThemeManager.applyTheme(this);
-        
+
         super.onCreate(savedInstanceState);
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {
@@ -321,7 +304,7 @@ public class NoteEditor extends Activity {
         mText = (EditText) findViewById(R.id.note);
         mTypeSpinner = (Spinner) findViewById(R.id.type_spinner);
         mColorSpinner = (Spinner) findViewById(R.id.color_spinner);
-        
+
         // Setup spinners
         setupSpinners();
 
@@ -333,11 +316,11 @@ public class NoteEditor extends Activity {
             mOriginalContent = savedInstanceState.getString(ORIGINAL_CONTENT);
         }
     }
-    
+
     private void applyTheme() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         int theme = prefs.getInt("theme", THEME_LIGHT); // 默认使用浅色主题
-        
+
         switch (theme) {
             case THEME_DARK:
                 setTheme(R.style.NotePadTheme_Dark);
@@ -348,29 +331,66 @@ public class NoteEditor extends Activity {
                 break;
         }
     }
-    
-    private void setupSpinners() {
-        // Setup type spinner
-        ArrayAdapter<String> typeAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, CATEGORIES);
-        typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mTypeSpinner.setAdapter(typeAdapter);
 
-        // Setup color spinner
-        ArrayAdapter<String> colorAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, COLOR_NAMES) {
-            @Override
-            public View getDropDownView(int position, View convertView, android.view.ViewGroup parent) {
-                View view = super.getDropDownView(position, convertView, parent);
-                if (position > 0) {
-                    view.setBackgroundColor(android.graphics.Color.parseColor(COLORS[position]));
+        private void setupSpinners() {
+            // Setup type spinner
+            ArrayAdapter<String> typeAdapter = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_spinner_item, CATEGORIES) {
+                //  控制“选中项”的字体颜色
+                @Override
+                public View getView(int position, View convertView, ViewGroup parent) {
+                    View view = super.getView(position, convertView, parent);
+                    TextView textView = (TextView) view;
+                    // 设置选中项字体颜色（比如和标题一致的灰色）
+                    textView.setTextColor(Color.GRAY);
+                    return view;
                 }
-                return view;
-            }
-        };
-        colorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mColorSpinner.setAdapter(colorAdapter);
-    }
+
+                //  控制“下拉项”的字体颜色
+                @Override
+                public View getDropDownView(int position, View convertView, ViewGroup parent) {
+                    View view = super.getDropDownView(position, convertView, parent);
+                    TextView textView = (TextView) view;
+                    // 设置下拉项字体颜色
+                    textView.setTextColor(Color.GRAY);
+                    return view;
+                }
+            };
+
+
+            typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            mTypeSpinner.setAdapter(typeAdapter);
+
+
+
+            // Setup color spinner
+            ArrayAdapter<String> colorAdapter = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_spinner_item, COLOR_NAMES) {
+                // ① 控制“选中项”的字体颜色
+                @Override
+                public View getView(int position, View convertView, ViewGroup parent) {
+                    View view = super.getView(position, convertView, parent);
+                    TextView textView = (TextView) view;
+                    // 设置选中项字体颜色（灰色）
+                    textView.setTextColor(Color.GRAY);
+                    return view;
+                }
+
+                // 控制“下拉项”的字体颜色
+                @Override
+                public View getDropDownView(int position, View convertView, android.view.ViewGroup parent) {
+                    View view = super.getDropDownView(position, convertView, parent);
+                    TextView textView = (TextView) view;
+                    // 设置下拉项字体颜色（灰色）
+                    textView.setTextColor(Color.GRAY);
+                    // 原有背景色逻辑保留
+                        view.setBackgroundColor(Color.parseColor(COLORS[position]));
+                    return view;
+                }
+            };
+            colorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            mColorSpinner.setAdapter(colorAdapter);
+        }
 
     /**
      * This method is called when the Activity is about to come to the foreground. This happens
@@ -501,7 +521,7 @@ public class NoteEditor extends Activity {
         super.onPause();
         saveNote();
     }
-    
+
     /**
      * 保存笔记内容的方法
      * 这个方法可以在多种情况下调用以确保内容被保存
@@ -525,13 +545,13 @@ public class NoteEditor extends Activity {
                 setResult(RESULT_CANCELED);
                 return;
             }
-            
+
             // Get the current type
             String type = (String) mTypeSpinner.getSelectedItem();
             if (type != null && type.isEmpty()) {
                 type = null;
             }
-            
+
             // Get the current color
             String color = COLORS[mColorSpinner.getSelectedItemPosition()];
 
@@ -539,13 +559,18 @@ public class NoteEditor extends Activity {
             ContentValues values = new ContentValues();
             values.put(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, System.currentTimeMillis());
 
-            
+
             // Update type and color
             values.put(NotePad.Notes.COLUMN_NAME_TYPE, type);
             values.put(NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR, color);
-
             // This puts the desired notes text into the map.
             values.put(NotePad.Notes.COLUMN_NAME_NOTE, text);
+            if (mState == STATE_INSERT) {
+                String title = "New Note";
+                // In the values map, sets the value of the title
+                values.put(NotePad.Notes.COLUMN_NAME_TITLE, title);
+                mCurrentTitle = title; // 更新当前标题
+            }
 
             /*
              * Updates the provider with the new values in the map. The ListView is updated
@@ -721,7 +746,7 @@ public class NoteEditor extends Activity {
         if (type != null && !type.isEmpty()) {
             values.put(NotePad.Notes.COLUMN_NAME_TYPE, type);
         }
-        
+
         String color = COLORS[mColorSpinner.getSelectedItemPosition()];
         if (!color.isEmpty()) {
             values.put(NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR, color);

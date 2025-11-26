@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 绿色圆形背景（移除elevation，改用View的elevation设置阴影） -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#222222" /> <!-- 灰色 -->
+            <size
+                android:width="48dp"
+                android:height="48dp" /> <!-- 保持48dp尺寸 -->
+            <!-- 移除elevation，阴影在使用该drawable的View中设置 -->
+        </shape>
+    </item>
+
+    <!-- 白色竖线（添加居中对齐） -->
+    <item
+        android:gravity="center"> <!-- 确保线条居中 -->
+        <shape android:shape="rectangle">
+            <solid android:color="#111111" />
+            <size
+                android:width="2dp"
+                android:height="24dp" /> <!-- 竖线长度为圆形半径（24dp） -->
+        </shape>
+    </item>
+
+    <!-- 白色横线（添加居中对齐，简化旋转逻辑） -->
+    <item
+        android:gravity="center"> <!-- 确保线条居中 -->
+        <shape android:shape="rectangle">
+            <solid android:color="#111111" />
+            <size
+                android:width="24dp"
+                android:height="2dp" /> <!-- 横线长度为圆形半径（24dp），无需旋转90度，直接设置宽高即可 -->
+        </shape>
+    </item>
+</layer-list>

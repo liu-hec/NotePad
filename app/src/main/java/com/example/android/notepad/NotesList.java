@@ -16,8 +16,6 @@
 
 package com.example.android.notepad;
 
-import com.example.android.notepad.NotePad;
-
 import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.ClipboardManager;
@@ -32,19 +30,20 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.ContextMenu;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.SimpleCursorAdapter;
 import android.widget.SearchView;
+
+import androidx.appcompat.content.res.AppCompatResources;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -110,7 +109,23 @@ public class NotesList extends ListActivity {
 
         // The user does not need to hold down the key to use menu shortcuts.
         setDefaultKeyMode(DEFAULT_KEYS_SHORTCUT);
+        setContentView(R.layout.activity_notes_list); // 新增这一行
 
+        ImageView addButton = findViewById(R.id.add_note);
+        //如果是white模式 选择icon_add_note_fab_white 否则icon_add_note_fab
+        int drawableId;
+        if (ThemeManager.getCurrentTheme(this) == ThemeManager.THEME_DARK) {
+            drawableId = R.drawable.ic_add_note_fab;
+        } else {
+            drawableId = R.drawable.ic_add_note_fab_white;
+        }
+        addButton.setImageDrawable(AppCompatResources.getDrawable(this, drawableId));
+
+        addButton.setOnClickListener(v -> {
+            // 跳转到NoteEditor进行新建笔记
+            Intent intent = new Intent(Intent.ACTION_INSERT, NotePad.Notes.CONTENT_URI);
+            startActivity(intent);
+        });
         // 设置自定义ActionBar
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {
@@ -156,7 +171,7 @@ public class NotesList extends ListActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 showNotePopupMenu(view, id); // 触发自定义PopupMenu
-                return true; // 消费事件，避免系统默认行为
+                return true; //
             }
         });
 
@@ -171,7 +186,7 @@ public class NotesList extends ListActivity {
                 null,
                 null,
                 NotePad.Notes.DEFAULT_SORT_ORDER
-        );//  TODO managedQuery方法而导致的闪退问题 导致搜索框 没有进行搜索进入编辑页面退出后直接闪退
+        );//  TODO managedQuery早期的查询方法 会导致闪退问题 导致在搜索框中没有进行搜索反而进入编辑页面退出后这样情况会直接闪退 因此改为Resolver来查询
         //
 
         /*
@@ -275,7 +290,7 @@ public class NotesList extends ListActivity {
                 public boolean onQueryTextChange(String newText) {
                     if (newText.isEmpty()) {
                         performSearch("");
-                    }
+                    }//if empty then search all
                     return true;
                 }
             });
@@ -308,21 +323,7 @@ public class NotesList extends ListActivity {
                         NotePad.Notes.COLUMN_NAME_NOTE + " LIKE ?";
             selectionArgs = new String[]{"%" + query + "%", "%" + query + "%"};
         }
-        
-        // Add type filter if we have one
-        if (currentFilterType != null && !currentFilterType.isEmpty()) {
-            String typeSelection = NotePad.Notes.COLUMN_NAME_TYPE + " = ?";
-            if (selection != null) {
-                selection = "(" + selection + ") AND " + typeSelection;
-                String[] newArgs = new String[selectionArgs.length + 1];
-                System.arraycopy(selectionArgs, 0, newArgs, 0, selectionArgs.length);
-                newArgs[selectionArgs.length] = currentFilterType;
-                selectionArgs = newArgs;
-            } else {
-                selection = typeSelection;
-                selectionArgs = new String[]{currentFilterType};
-            }
-        }
+
 
         // 使用 getContentResolver().query() 替代 managedQuery
         Cursor cursor = getContentResolver().query(

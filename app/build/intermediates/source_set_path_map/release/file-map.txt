@@ -1,7 +1,0 @@
-com.example.android.notepad.app-pngs-0 C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\build\generated\res\pngs\release
-com.example.android.notepad.app-resValues-1 C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\build\generated\res\resValues\release
-com.example.android.notepad.app-packageReleaseResources-2 C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\build\intermediates\incremental\release\packageReleaseResources\merged.dir
-com.example.android.notepad.app-packageReleaseResources-3 C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
-com.example.android.notepad.app-merged_res-4 C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\build\intermediates\merged_res\release
-com.example.android.notepad.app-main-5 C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\main\res
-com.example.android.notepad.app-release-6 C:\Users\86152\AndroidStudioProjects\NotePad_origin\app\src\release\res

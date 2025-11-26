@@ -60,6 +60,6 @@
         android:textSize="22sp"
         android:capitalize="sentences"
         android:layout_marginTop="16dp"
-        android:textColor="?android:attr/textColorPrimary" />  
+        android:textColor="?android:attr/textColorPrimary" />
 
 </LinearLayout>

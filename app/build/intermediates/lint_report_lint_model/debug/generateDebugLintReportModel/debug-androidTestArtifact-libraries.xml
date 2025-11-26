@@ -1,5 +1,0 @@
-<libraries>
-  <library
-      name=":@@:app::debug"
-      project=":app"/>
-</libraries>

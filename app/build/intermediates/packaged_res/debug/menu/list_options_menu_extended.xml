@@ -20,14 +20,14 @@
           
     <!-- 背景颜色切换菜单 -->
     <item android:id="@+id/menu_theme"
-          android:title="切换背景"
+          android:title="change backgroud"
           android:icon="@drawable/ic_menu_theme"
           android:showAsAction="ifRoom" >
         <menu>
             <item android:id="@+id/menu_theme_white"
-                  android:title="白色背景" />
+                  android:title="white" />
             <item android:id="@+id/menu_theme_gray"
-                  android:title="灰色背景" />
+                  android:title="gray" />
         </menu>
     </item>
 

@@ -1,10 +1,10 @@
-#Fri Nov 14 10:51:27 CST 2025
-base.0=C\:\\Users\\86152\\AndroidStudioProjects\\NotePad_origin\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.1=C\:\\Users\\86152\\AndroidStudioProjects\\NotePad_origin\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
-base.2=C\:\\Users\\86152\\AndroidStudioProjects\\NotePad_origin\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-path.0=0/classes.dex
-path.1=7/classes.dex
-path.2=classes.dex
+#Wed Nov 26 19:41:35 CST 2025
+base.0=C\:\\Users\\86152\\AndroidStudioProjects\\NotePad_origin\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\Users\\86152\\AndroidStudioProjects\\NotePad_origin\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.2=C\:\\Users\\86152\\AndroidStudioProjects\\NotePad_origin\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
+path.0=classes.dex
+path.1=0/classes.dex
+path.2=7/classes.dex
 renamed.0=classes.dex
 renamed.1=classes2.dex
 renamed.2=classes3.dex
