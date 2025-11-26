@@ -635,12 +635,20 @@ private void setupSpinners() {
 
 同上，点击保存或者回退到主界面，触发保存note方法saveNote，进行修改操作。
 
+
+
+
+
+
 截图测试颜色情况：
 
 <img width="577" height="472" alt="image" src="https://github.com/user-attachments/assets/1e7a08ee-1ce8-4cce-a338-073bcec03d0e" />
 修改note-1 为粉色
 
 <img width="598" height="124" alt="image" src="https://github.com/user-attachments/assets/11c45013-6980-4f15-a16c-abbe570d693a" />
+
+
+
 
 
 
@@ -681,7 +689,11 @@ private void setupSpinners() {
 
 ListView是列表主界面，下面单独的圆圈图标
 
+
+
 <img width="553" height="1041" alt="image" src="https://github.com/user-attachments/assets/abf81dc6-5910-48f4-9a62-a7a893e50e16" />
+
+
 
 
 最后，将其创建监听方法，点击进入编辑页面即可。
@@ -695,7 +707,11 @@ addButton.setOnClickListener(v -> {
 });
 ```
 
+
+
 点击进入编辑页面
+
+
 <img width="518" height="874" alt="image" src="https://github.com/user-attachments/assets/231c8830-97de-4d5e-be46-d80e83a38780" />
 
 
@@ -718,13 +734,20 @@ public LinedEditText(Context context, AttributeSet attrs) {
 }
 ```
 
+
+
+
 默认情况
+
+
 <img width="566" height="444" alt="image" src="https://github.com/user-attachments/assets/f085fe0f-9afa-4be4-bbbb-537e586f90b8" />
 
 
 黑色模式
 
+
 <img width="507" height="418" alt="image" src="https://github.com/user-attachments/assets/b5dd513c-0c39-43e5-9204-1412974b1049" />
+
 
 
 
