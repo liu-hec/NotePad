@@ -571,6 +571,10 @@ private void setupSpinners() {
 
 随后点击保存或者回退到主界面，触发保存note方法saveNote，部分代码如下
 
+
+<img width="553" height="590" alt="image" src="https://github.com/user-attachments/assets/ea50ead6-b5d8-4af9-8bb2-274411db5f5e" />
+
+
 ```
   // Get the current type
             String type = (String) mTypeSpinner.getSelectedItem();
@@ -588,12 +592,10 @@ private void setupSpinners() {
                     null     // No where columns are used, so no where arguments are necessary.
                 );
 ```
-修改为tasks
-<img width="532" height="558" alt="image" src="https://github.com/user-attachments/assets/32c4ee5d-267e-45c7-b729-913c23dd9de1" />
 
-成功查询
 
-<img width="551" height="179" alt="image" src="https://github.com/user-attachments/assets/9d859b1a-046f-40be-91b2-22e75ee72d8e" />
+
+
 
 
 #### 彩色笔记
@@ -737,13 +739,12 @@ public LinedEditText(Context context, AttributeSet attrs) {
 默认情况
 
 
-<img width="566" height="444" alt="image" src="https://github.com/user-attachments/assets/f085fe0f-9afa-4be4-bbbb-537e586f90b8" />
+ <img width="566" height="444" alt="image" src="https://github.com/user-attachments/assets/f085fe0f-9afa-4be4-bbbb-537e586f90b8" /> 
 
 
 黑色模式
 
-
-<img width="507" height="418" alt="image" src="https://github.com/user-attachments/assets/b5dd513c-0c39-43e5-9204-1412974b1049" />
+ ![image](https://github.com/user-attachments/assets/f085fe0f-9afa-4be4-bbbb-537e586f90b8 =566x444) 
 
 
 
