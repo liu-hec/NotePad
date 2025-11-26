@@ -6,7 +6,8 @@
 
 对于功能的实现，我们通过项目的结构来划分类和功能的对应情况。
 
-![image-20251125105712369](../../AppData/Roaming/Typora/typora-user-images/image-20251125105712369.png)
+<img width="321" height="286" alt="image" src="https://github.com/user-attachments/assets/670acd43-bea1-45d6-a954-9cf20de998d3" />
+
 
 ​    NoteEditor主要涉及note编辑功能，NotePad契约类，主要涉及数据层操作的uri约定情况。 NotePadProvider涉及数据内容的传递，使得不同程序之间共享交互数据， NoteList类主要使用ContentResolver来调用Provider的方法并显示主界面的情况，其余的类涉及小组件的具体功能实现，如title的修改或者主题的改变等等。
 
