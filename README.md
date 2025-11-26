@@ -337,7 +337,8 @@ private String formatDate(long timestamp) {
 
 
 
-截图：
+<img width="294" height="73" alt="image" src="https://github.com/user-attachments/assets/a4c91eb9-8fe8-4da2-9321-39395bebc3fe" />
+
 
 
 
@@ -377,8 +378,8 @@ private String formatDate(long timestamp) {
             }
         });
 ```
-
-截图：
+点击搜索按钮 弹出搜索框
+<img width="527" height="168" alt="image" src="https://github.com/user-attachments/assets/defd8cc5-ab0d-4d18-bd5d-718a1ff87326" />
 
 
 
@@ -424,10 +425,14 @@ if (adapter != null && cursor != null) {
     adapter.changeCursor(cursor);
 }
 ```
+<img width="595" height="1112" alt="image" src="https://github.com/user-attachments/assets/f0ff3f4c-9516-4cee-844e-281939c8f400" />
 
-搜索截图：note和title各一张
+搜索含有“1”的note
+搜索“Dan”的note，
+<img width="563" height="719" alt="image" src="https://github.com/user-attachments/assets/be7e4386-2487-442d-9167-ca9d9521d675" />
 
-
+其中，note-1存在对应的内容。不区分大小写。
+<img width="535" height="436" alt="image" src="https://github.com/user-attachments/assets/fea06096-3d5a-494b-ad63-bea2aad22297" />
 
 
 
@@ -457,7 +462,8 @@ if (adapter != null && cursor != null) {
             }
 ```
 
----------汉堡按钮图
+<img width="1059" height="995" alt="image" src="https://github.com/user-attachments/assets/8e9f2026-68b6-42b3-948b-55e1c7376163" />
+
 
 点击按钮，执行showCategoriesPopupMenu方法，显示所有类别，并设定监听。
 
@@ -500,10 +506,12 @@ if (adapter != null && cursor != null) {
 ```
 
 
+<img width="550" height="461" alt="image" src="https://github.com/user-attachments/assets/4eee99ec-2a60-47d9-91ad-cbe5c1581cfc" />
 
-截图：两个类别图即可
 
-
+Personal:
+<img width="568" height="231" alt="image" src="https://github.com/user-attachments/assets/13605584-6350-49b9-b714-5929f50b0441" />
+All note显示所有的note.
 
 
 
@@ -519,7 +527,8 @@ if (adapter != null && cursor != null) {
 
 这里我们的编辑页面的基本结构如下：
 
-  截图：
+  <img width="517" height="109" alt="image" src="https://github.com/user-attachments/assets/e9b11289-6a60-4cae-b655-cd8ae46d3152" />
+
 
 
 
@@ -554,7 +563,8 @@ private void setupSpinners() {
     mTypeSpinner.setAdapter(typeAdapter);
 
 }
-```
+<img width="301" height="478" alt="image" src="https://github.com/user-attachments/assets/57f65007-d23c-41c3-9708-f1766783af79" />
+
 
 重写当前选中getView() 和 下拉项getDropDownView()，统一修改为灰色显示。
 
@@ -582,9 +592,10 @@ private void setupSpinners() {
 
 
 
-截图:修改并查询的情况
+修改note-1 类别为tasks
+<img width="573" height="426" alt="image" src="https://github.com/user-attachments/assets/5942d93f-3dcc-4b59-b222-7b3356d39ffd" />
 
-
+缺点是 主界面查询对应的分类，但是无法得知现在的分类情况。
 
 
 
