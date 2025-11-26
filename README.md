@@ -637,9 +637,10 @@ private void setupSpinners() {
 
 截图测试颜色情况：
 
+<img width="577" height="472" alt="image" src="https://github.com/user-attachments/assets/1e7a08ee-1ce8-4cce-a338-073bcec03d0e" />
+修改note-1 为粉色
 
-
-
+<img width="598" height="124" alt="image" src="https://github.com/user-attachments/assets/11c45013-6980-4f15-a16c-abbe570d693a" />
 
 
 
@@ -680,6 +681,7 @@ private void setupSpinners() {
 
 ListView是列表主界面，下面单独的圆圈图标
 
+<img width="553" height="1041" alt="image" src="https://github.com/user-attachments/assets/abf81dc6-5910-48f4-9a62-a7a893e50e16" />
 
 
 最后，将其创建监听方法，点击进入编辑页面即可。
@@ -693,6 +695,8 @@ addButton.setOnClickListener(v -> {
 });
 ```
 
+点击进入编辑页面
+<img width="518" height="874" alt="image" src="https://github.com/user-attachments/assets/231c8830-97de-4d5e-be46-d80e83a38780" />
 
 
 
@@ -714,7 +718,11 @@ public LinedEditText(Context context, AttributeSet attrs) {
 }
 ```
 
-截图
+
+<img width="518" height="357" alt="image" src="https://github.com/user-attachments/assets/9a301cf6-eba4-4f33-9474-741d22883446" />
+黑色模式
+<img width="553" height="579" alt="image" src="https://github.com/user-attachments/assets/09610735-d528-41bb-80da-77d2e25ad44a" />
+
 
 
 
@@ -837,8 +845,12 @@ android:textColor="?android:attr/textColorPrimary"
 例如，对于某些想要自定义的组件样式，在主题数量少的情况下，我们可以定义一个默认组件和dark组件。
 
 以快捷键为例。创建两个相似的icon,在不同的主题下进行设置即可。
+白色模式
+<img width="1103" height="1068" alt="image" src="https://github.com/user-attachments/assets/534bb8d0-1360-41b0-b0f2-22ea8ff18716" />
 
 
+黑色模式
+<img width="1069" height="995" alt="image" src="https://github.com/user-attachments/assets/139e4114-5b6a-4691-be18-053adf1228dd" />
 
 
 
@@ -880,7 +892,7 @@ if (itemId == R.id.menu_theme_white) {
 }
 ```
 
-截图：
+<img width="555" height="1006" alt="image" src="https://github.com/user-attachments/assets/74e46e1a-9ff4-4440-973c-dc1a21de119e" />
 
 
 
@@ -892,15 +904,7 @@ if (itemId == R.id.menu_theme_white) {
 
 
 
-
-
-
-
-
-
-
-
-
+<img width="545" height="1086" alt="image" src="https://github.com/user-attachments/assets/29b813d5-9db8-4f46-aeb6-c864c1c01cc4" />
 
 
 
