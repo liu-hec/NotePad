@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent_color">#FF4081</color>
+    <color name="background_color">#F5F5F5</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="dark_background">#3C3C3C</color>
+    <color name="dark_card_background">#3C3C3C</color>
+    <color name="dark_text_primary">#000000</color>
+    <color name="dark_text_secondary">#B0BEC5</color>
+    <color name="primary_color">#1976D2</color>
+    <color name="primary_dark_color">#1565C0</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <string name="app_name">NotePad</string>
+    <string name="button_ok">OK</string>
+    <string name="category_label">Category:</string>
+    <string name="color_label">Color:</string>
+    <string name="error_message">Error loading note</string>
+    <string name="error_title">Error</string>
+    <string name="live_folder_name">Live Notes</string>
+    <string name="menu_add">New note</string>
+    <string name="menu_copy">Copy</string>
+    <string name="menu_delete">Delete</string>
+    <string name="menu_edit_title">Edit title</string>
+    <string name="menu_open">Open</string>
+    <string name="menu_paste">Paste</string>
+    <string name="menu_revert">Revert</string>
+    <string name="menu_save">Save</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_theme">切换背景</string>
+    <string name="nothing_to_save">There is nothing to save</string>
+    <string name="resolve_edit">Edit note</string>
+    <string name="resolve_title">Edit title</string>
+    <string name="title_create">New note</string>
+    <string name="title_edit">Edit note: \"%1$s\"</string>
+    <string name="title_edit_title">Select title</string>
+    <string name="title_notes_list">Notes</string>
+    <style name="NotePadTheme.Dark" parent="@android:style/Theme.Holo">
+        <item name="android:listPopupWindowStyle">@style/PopupMenuStyle</item>
+        <item name="android:windowBackground">@color/dark_background</item>
+        <item name="android:textColorPrimary">@color/dark_text_primary</item>
+        <item name="android:textColorSecondary">@color/dark_text_secondary</item>
+    </style>
+    <style name="NotePadTheme.Light" parent="@android:style/Theme.Holo.Light">
+        <item name="android:listPopupWindowStyle">@style/PopupMenuStyle</item>
+        <item name="android:windowBackground">@color/background_color</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+    </style>
+    <style name="PopupMenuStyle" parent="@android:style/Widget.Holo.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/popup_menu_background</item>
+    </style>
+</resources>

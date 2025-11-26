@@ -1,150 +1,138 @@
 [
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_ic_menu_hamburger.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\ic_menu_hamburger.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_menu_save.png.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable/ic_menu_save.png"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_ic_menu_theme.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\ic_menu_theme.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/menu_list_options_menu_extended.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/menu/list_options_menu_extended.xml"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_live_folder_notes.png.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\live_folder_notes.png"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_menu_edit.png.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable/ic_menu_edit.png"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable-ldpi_live_folder_notes.png.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable-ldpi\\live_folder_notes.png"
-    },
-    {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable-hdpi_live_folder_notes.png.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable-hdpi\\live_folder_notes.png"
-    },
-    {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable-hdpi_ic_menu_edit.png.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable-hdpi\\ic_menu_edit.png"
-    },
-    {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_ic_pencil.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\ic_pencil.xml"
-    },
-    {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable-hdpi_ic_menu_save.png.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable-hdpi\\ic_menu_save.png"
-    },
-    {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable-v21_editor_background.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable-v21\\editor_background.xml"
-    },
-    {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_ic_menu_compose.png.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\ic_menu_compose.png"
-    },
-    {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable-hdpi_ic_menu_delete.png.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable-hdpi\\ic_menu_delete.png"
-    },
-    {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_ic_menu_delete.png.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\ic_menu_delete.png"
-    },
-    {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable-ldpi_app_notes.png.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable-ldpi\\app_notes.png"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-ldpi_live_folder_notes.png.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable-ldpi/live_folder_notes.png"
     },
     {
         "merged": "com.example.android.notepad.app-merged_res-4:/layout_note_editor_extended.xml.flat",
         "source": "com.example.android.notepad.app-main-6:/layout/note_editor_extended.xml"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_ic_menu_search.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\ic_menu_search.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_search_background.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable/search_background.xml"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\menu_list_options_menu_extended.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\menu\\list_options_menu_extended.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/menu_editor_options_menu.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/menu/editor_options_menu.xml"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable-v21_note_item_background.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable-v21\\note_item_background.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-hdpi_ic_menu_compose.png.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable-hdpi/ic_menu_compose.png"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable-hdpi_app_notes.png.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable-hdpi\\app_notes.png"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_add_note_fab_white.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable/ic_add_note_fab_white.xml"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_search_background.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\search_background.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_menu_revert.png.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable/ic_menu_revert.png"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\layout_title.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\layout\\title.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_app_notes.png.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable/app_notes.png"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_ic_add_note_fab_white.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\ic_add_note_fab_white.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-hdpi_ic_menu_revert.png.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable-hdpi/ic_menu_revert.png"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable-hdpi_ic_menu_revert.png.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable-hdpi\\ic_menu_revert.png"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-hdpi_ic_menu_save.png.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable-hdpi/ic_menu_save.png"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\layout_note_editor_extended.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\layout\\note_editor_extended.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/menu_list_context_menu.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/menu/list_context_menu.xml"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_popup_menu_background.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\popup_menu_background.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-v21_editor_background.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable-v21/editor_background.xml"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_ic_menu_hamburger_gray.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\ic_menu_hamburger_gray.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-hdpi_live_folder_notes.png.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable-hdpi/live_folder_notes.png"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\menu_list_context_menu.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\menu\\list_context_menu.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/layout_actionbar_custom_view.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/layout/actionbar_custom_view.xml"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\layout_actionbar_custom_view.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\layout\\actionbar_custom_view.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/layout_title.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/layout/title.xml"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_ic_add_note_fab.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\ic_add_note_fab.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-v21_note_item_background.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable-v21/note_item_background.xml"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_ic_menu_save.png.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\ic_menu_save.png"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-hdpi_app_notes.png.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable-hdpi/app_notes.png"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\layout_noteslist_item.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\layout\\noteslist_item.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_add_note_fab.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable/ic_add_note_fab.xml"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_ic_menu_edit.png.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\ic_menu_edit.png"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_popup_menu_background.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable/popup_menu_background.xml"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_app_notes.png.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\app_notes.png"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-hdpi_ic_menu_edit.png.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable-hdpi/ic_menu_edit.png"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\menu_editor_options_menu.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\menu\\editor_options_menu.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_live_folder_notes.png.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable/live_folder_notes.png"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable-hdpi_ic_menu_compose.png.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable-hdpi\\ic_menu_compose.png"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_menu_hamburger_gray.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable/ic_menu_hamburger_gray.xml"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\layout_title_editor.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\layout\\title_editor.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_menu_compose.png.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable/ic_menu_compose.png"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\layout_activity_notes_list.xml.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\layout\\activity_notes_list.xml"
+        "merged": "com.example.android.notepad.app-merged_res-4:/layout_activity_notes_list.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/layout/activity_notes_list.xml"
     },
     {
-        "merged": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-merged_res-4:\\drawable_ic_menu_revert.png.flat",
-        "source": "D:\\AndroidProjects\\daemon\\8.13\\com.example.android.notepad.app-main-6:\\drawable\\ic_menu_revert.png"
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-ldpi_app_notes.png.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable-ldpi/app_notes.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/layout_title_editor.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/layout/title_editor.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_menu_theme.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable/ic_menu_theme.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/layout_noteslist_item.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/layout/noteslist_item.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_menu_search.xml.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable/ic_menu_search.xml"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable-hdpi_ic_menu_delete.png.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable-hdpi/ic_menu_delete.png"
+    },
+    {
+        "merged": "com.example.android.notepad.app-merged_res-4:/drawable_ic_menu_delete.png.flat",
+        "source": "com.example.android.notepad.app-main-6:/drawable/ic_menu_delete.png"
     }
 ]
