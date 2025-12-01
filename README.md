@@ -108,12 +108,21 @@ NoteList通过Resolver来调用Provider的方法和数据库交互，并通过 S
 ```
 
 修改前的内容
+
+
 <img width="534" height="620" alt="image" src="https://github.com/user-attachments/assets/b236c120-dce8-4009-a4b3-ec5d0267193f" />
 
 修改后
+
+
 <img width="542" height="484" alt="image" src="https://github.com/user-attachments/assets/105c1cd9-57c9-4ca2-94b4-4d9fb42a1ac1" />
+
+同时时间紧随修改
+
 <img width="286" height="71" alt="image" src="https://github.com/user-attachments/assets/744944fd-ccd0-4cd6-9301-4650fb2d4f82" />
-同时时间紧随修改。
+
+
+
 
 #### 新增note
 
@@ -214,8 +223,14 @@ long rowId = db.insert(
 ```
 
 <img width="576" height="424" alt="image" src="https://github.com/user-attachments/assets/593be6e5-de6e-4511-ba90-c43c220162cf" />
+
+
 长按note 弹出选择 选择delete
+
+
 <img width="572" height="403" alt="image" src="https://github.com/user-attachments/assets/5fc40e9c-47b2-4d09-b780-38b0f680bed6" />
+
+
 可以发现New Note被删除。
 
 
@@ -380,6 +395,8 @@ private String formatDate(long timestamp) {
         });
 ```
 点击搜索按钮 弹出搜索框
+
+
 <img width="527" height="168" alt="image" src="https://github.com/user-attachments/assets/defd8cc5-ab0d-4d18-bd5d-718a1ff87326" />
 
 
@@ -430,9 +447,13 @@ if (adapter != null && cursor != null) {
 
 搜索含有“1”的note
 搜索“Dan”的note，
+
+
 <img width="563" height="719" alt="image" src="https://github.com/user-attachments/assets/be7e4386-2487-442d-9167-ca9d9521d675" />
 
 其中，note-1存在对应的内容。不区分大小写。
+
+
 <img width="535" height="436" alt="image" src="https://github.com/user-attachments/assets/fea06096-3d5a-494b-ad63-bea2aad22297" />
 
 
@@ -511,6 +532,8 @@ if (adapter != null && cursor != null) {
 
 
 Personal:
+
+
 <img width="568" height="231" alt="image" src="https://github.com/user-attachments/assets/13605584-6350-49b9-b714-5929f50b0441" />
 All note显示所有的note.
 
@@ -527,6 +550,7 @@ All note显示所有的note.
 ```
 
 这里我们的编辑页面的基本结构如下：
+
 
   <img width="517" height="109" alt="image" src="https://github.com/user-attachments/assets/e9b11289-6a60-4cae-b655-cd8ae46d3152" />
 
@@ -564,12 +588,15 @@ private void setupSpinners() {
     mTypeSpinner.setAdapter(typeAdapter);
 
 }
+
+
 <img width="301" height="478" alt="image" src="https://github.com/user-attachments/assets/57f65007-d23c-41c3-9708-f1766783af79" />
 
 
 重写当前选中getView() 和 下拉项getDropDownView()，统一修改为灰色显示。
 
 随后点击保存或者回退到主界面，触发保存note方法saveNote，部分代码如下
+
 
 
 <img width="553" height="590" alt="image" src="https://github.com/user-attachments/assets/ea50ead6-b5d8-4af9-8bb2-274411db5f5e" />
@@ -643,7 +670,10 @@ private void setupSpinners() {
 截图测试颜色情况：
 
   <img width="577" height="472" alt="image" src="https://github.com/user-attachments/assets/1e7a08ee-1ce8-4cce-a338-073bcec03d0e" /> 
+
+  
 修改note-1 为粉色
+
 
   <img width="598" height="124" alt="image" src="https://github.com/user-attachments/assets/11c45013-6980-4f15-a16c-abbe570d693a" />
 
@@ -713,6 +743,7 @@ addButton.setOnClickListener(v -> {
 点击进入编辑页面
 ```
 
+
 <img width="518" height="874" alt="image" src="https://github.com/user-attachments/assets/231c8830-97de-4d5e-be46-d80e83a38780" />
 
 ```
@@ -745,6 +776,7 @@ public LinedEditText(Context context, AttributeSet attrs) {
 
 
 黑色模式
+
 
 <img width="524" height="521" alt="image" src="https://github.com/user-attachments/assets/84bc4937-ada8-472b-9caf-04633a5391c7" />
 
@@ -921,6 +953,7 @@ if (itemId == R.id.menu_theme_white) {
 }
 ```
 
+
 <img width="555" height="1006" alt="image" src="https://github.com/user-attachments/assets/74e46e1a-9ff4-4440-973c-dc1a21de119e" />
 
 
@@ -930,6 +963,7 @@ if (itemId == R.id.menu_theme_white) {
 对于夜间模式，我们调整对于的显示颜色即可，在theme中定义两种不同的颜色即可。
 
 因此对于一些组件的颜色显示，我们仅需使用引用属性来切换其在不同主题下的表现情况即可。因此无需特别关注主题的变化带来的其他重大改动。
+
 
 
 
